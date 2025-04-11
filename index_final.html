@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -564,48 +565,57 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Modal Style */
+        /* Modal styles for service popups */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1050;
+            z-index: 1001;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
-            position: relative;
-            background-color: #fefefe;
+            background-color: white;
             margin: 10% auto;
-            padding: 20px;
+            padding: 2rem;
             border-radius: 10px;
-            width: 80%;
             max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: modalopen 0.4s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
         .close-modal {
             position: absolute;
             right: 20px;
-            top: 10px;
+            top: 15px;
             font-size: 28px;
             font-weight: bold;
-            color: #aaa;
             cursor: pointer;
+            color: var(--gray-color);
         }
 
-        .close-modal:hover {
+        .modal-body h3 {
             color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
         }
 
-        @keyframes modalopen {
-            from {transform: scale(0.8); opacity: 0;}
-            to {transform: scale(1); opacity: 1;}
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 992px) {
@@ -659,6 +669,17 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
+        }
+        
+        /* Success message for form submission */
+        .form-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -727,97 +748,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Service Modals -->
-    <div id="automatisationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Automatisation IA</h2>
-            <p>Notre service d'Automatisation IA propose des solutions innovantes pour optimiser et automatiser vos processus d'entreprise grâce à l'intelligence artificielle.</p>
-            
-            <h3>Ce que nous proposons :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Analyse complète de vos processus existants pour identifier les opportunités d'automatisation</li>
-                <li>Développement de workflows intelligents adaptés à votre entreprise</li>
-                <li>Mise en place d'assistants virtuels et de chatbots personnalisés</li>
-                <li>Automatisation du traitement des documents et de la saisie de données</li>
-                <li>Intégration avec vos systèmes et logiciels existants</li>
-                <li>Analyse de données avancée pour des insights commerciaux pertinents</li>
-                <li>Solutions évolutives qui s'adaptent à la croissance de votre entreprise</li>
-            </ul>
-            
-            <h3>Avantages clés :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Réduction significative du temps consacré aux tâches répétitives</li>
-                <li>Diminution des erreurs humaines et amélioration de la qualité</li>
-                <li>Optimisation des coûts opérationnels</li>
-                <li>Capacité à traiter de plus grands volumes de données</li>
-                <li>Amélioration de l'expérience client grâce à des réponses plus rapides</li>
-            </ul>
-            
-            <p>Nos solutions d'automatisation sont conçues pour être accessibles et ne nécessitent pas de compétences techniques particulières de votre part. Nous assurons la mise en place complète et vous formons à l'utilisation des outils pour vous rendre autonome rapidement.</p>
-        </div>
-    </div>
-
-    <div id="accompagnementModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Accompagnement Entrepreneurial</h2>
-            <p>Notre service d'Accompagnement Entrepreneurial vous guide à travers chaque étape de la création et du développement de votre entreprise, en combinant expertise humaine et solutions technologiques avancées.</p>
-            
-            <h3>Ce que nous proposons :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Analyse approfondie de votre projet et de son potentiel sur le marché</li>
-                <li>Élaboration d'un business plan complet et réaliste</li>
-                <li>Assistance aux démarches administratives et juridiques</li>
-                <li>Stratégie de financement et mise en relation avec des investisseurs potentiels</li>
-                <li>Développement de votre stratégie marketing et commerciale</li>
-                <li>Mise en place de votre infrastructure digitale (site web, CRM, outils de gestion)</li>
-                <li>Accompagnement personnalisé selon vos objectifs spécifiques</li>
-            </ul>
-            
-            <h3>Avantages clés :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Gain de temps considérable dans la phase de création</li>
-                <li>Réduction des risques d'erreurs stratégiques</li>
-                <li>Accès à une expertise multidisciplinaire</li>
-                <li>Développement plus rapide de votre entreprise</li>
-                <li>Conseils concrets et adaptés à votre secteur d'activité</li>
-            </ul>
-            
-            <p>Notre approche combine le meilleur de l'expertise humaine et des technologies d'intelligence artificielle pour vous offrir un accompagnement sur mesure, quelle que soit l'étape où vous vous trouvez dans votre parcours entrepreneurial.</p>
-        </div>
-    </div>
-
-    <div id="formationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Formation et Support</h2>
-            <p>Notre service de Formation et Support vous assure une maîtrise optimale des outils d'automatisation et une assistance continue pour maximiser votre autonomie et votre efficacité.</p>
-            
-            <h3>Ce que nous proposons :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Sessions de formation personnalisées sur vos solutions d'automatisation</li>
-                <li>Documentation complète et guides utilisateurs détaillés</li>
-                <li>Vidéos tutorielles accessibles en permanence</li>
-                <li>Assistance technique par email, téléphone ou visioconférence</li>
-                <li>Sessions de questions-réponses régulières</li>
-                <li>Mises à jour et améliorations continues de vos solutions</li>
-                <li>Suivi régulier pour s'assurer de l'efficacité des outils</li>
-            </ul>
-            
-            <h3>Avantages clés :</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
-                <li>Montée en compétence rapide de vos équipes</li>
-                <li>Réduction de la période d'adaptation aux nouveaux outils</li>
-                <li>Autonomie accrue dans la gestion quotidienne</li>
-                <li>Résolution rapide des problèmes techniques</li>
-                <li>Optimisation continue de votre utilisation des solutions</li>
-            </ul>
-            
-            <p>Notre équipe de support technique et de formation est composée d'experts qui comprennent à la fois les défis entrepreneuriaux et les aspects techniques des solutions. Nous nous engageons à vous fournir un accompagnement de qualité pour vous permettre d'exploiter pleinement le potentiel de vos outils d'automatisation.</p>
-        </div>
-    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -963,7 +893,7 @@
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">SM</div>
                         <div class="testimonial-author-info">
-                            <h4>Anne Muvumba</h4>
+                            <h4>Sophie Martin</h4>
                             <p>Fondatrice, Agence de Communication</p>
                         </div>
                     </div>
@@ -973,7 +903,7 @@
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">TD</div>
                         <div class="testimonial-author-info">
-                            <h4>Marcus lawrence</h4>
+                            <h4>Thomas Dubois</h4>
                             <p>Dirigeant d'une PME de Services</p>
                         </div>
                     </div>
@@ -983,7 +913,7 @@
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">JL</div>
                         <div class="testimonial-author-info">
-                            <h4>Enzo</h4>
+                            <h4>Julie Leroy</h4>
                             <p>Freelance en Marketing Digital</p>
                         </div>
                     </div>
@@ -1051,25 +981,29 @@
                 <p>Nous sommes là pour répondre à toutes vos questions</p>
             </div>
             <div class="contact-form-container">
-                <form>
+                <div id="form-success" class="form-success">
+                    Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
+                </div>
+                <!-- FORMSPREE INTEGRATION -->
+                <form id="contact-form" action="https://formspree.io/f/xkgjynyo" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nom et prénom</label>
-                            <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Votre email" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Votre email" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="company">Entreprise</label>
-                            <input type="text" id="company" class="form-control" placeholder="Votre entreprise">
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Votre entreprise">
                         </div>
                         <div class="form-group">
                             <label for="subject">Sujet</label>
-                            <select id="subject" class="form-control" required>
+                            <select id="subject" name="subject" class="form-control" required>
                                 <option value="" selected disabled>Sélectionnez un sujet</option>
                                 <option value="info">Demande d'information</option>
                                 <option value="quote">Demande de devis</option>
@@ -1081,10 +1015,10 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" class="form-control" placeholder="Votre message" required></textarea>
+                        <textarea id="message" name="message" class="form-control" placeholder="Votre message" required></textarea>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" id="rgpd" class="form-check-input" required>
+                        <input type="checkbox" id="rgpd" name="rgpd" class="form-check-input" required>
                         <label for="rgpd" class="form-check-label">J'accepte que mes données soient traitées conformément à la politique de confidentialité d'AutoloopIA.</label>
                     </div>
                     <div class="form-group" style="margin-top: 1.5rem;">
@@ -1097,7 +1031,7 @@
                     <h3>Informations de contact</h3>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">📍</div>
-                        <p>Montréal, Québec, Canada</p>
+                        <p>Montréal, Québec</p>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">✉️</div>
@@ -1150,9 +1084,10 @@
                 <div class="footer-column">
                     <h3>Newsletter</h3>
                     <p>Inscrivez-vous pour recevoir nos actualités et conseils sur l'automatisation IA.</p>
-                    <form style="margin-top: 1rem;">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Votre email" required>
+                    <form action="https://formspree.io/f/xkgjynyo" method="POST">
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <input type="email" name="email_newsletter" class="form-control" placeholder="Votre email" required>
+                            <input type="hidden" name="form_type" value="newsletter">
                         </div>
                         <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">S'inscrire</button>
                     </form>
@@ -1163,6 +1098,99 @@
             </div>
         </div>
     </footer>
+
+    <!-- Service Modals -->
+    <div id="automatisationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h3>Automatisation IA</h3>
+                <p>Notre service d'Automatisation IA vous permet d'optimiser l'ensemble de vos processus opérationnels grâce à l'intelligence artificielle. Nous identifions les tâches répétitives et chronophages dans votre organisation et mettons en place des solutions d'automatisation sur mesure.</p>
+                
+                <p><strong>Nos services d'automatisation incluent :</strong></p>
+                <ul>
+                    <li><b>Automatisation documentaire</b> : Gestion, classification et extraction intelligente des données de vos documents.</li>
+                    <li><b>Automatisation administrative</b> : Facturation, relances, reporting, et gestion des rendez-vous.</li>
+                    <li><b>Automatisation marketing</b> : Publication sur les réseaux sociaux, emailing, et campagnes marketing.</li>
+                    <li><b>Automatisation des processus métier</b> : Workflow personnalisés selon votre secteur d'activité.</li>
+                    <li><b>Chatbots intelligents</b> : Service client 24/7 et qualification des prospects.</li>
+                </ul>
+                
+                <p><strong>Avantages :</strong></p>
+                <ul>
+                    <li>Gain de temps considérable (jusqu'à 70% sur les tâches automatisées)</li>
+                    <li>Réduction des erreurs humaines</li>
+                    <li>Disponibilité 24/7 de certains services</li>
+                    <li>Réduction des coûts opérationnels</li>
+                    <li>Amélioration de l'expérience client</li>
+                    <li>Libération des ressources pour des tâches à plus forte valeur ajoutée</li>
+                </ul>
+                
+                <p>Chaque solution est développée spécifiquement pour répondre à vos besoins, en tenant compte de vos outils existants et de vos objectifs de croissance.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="accompagnementModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h3>Accompagnement Entrepreneurial</h3>
+                <p>Notre service d'Accompagnement Entrepreneurial vous guide à chaque étape de votre parcours, de l'idée initiale au développement de votre entreprise. Notre approche combine expertise business et technologique pour maximiser vos chances de succès.</p>
+                
+                <p><strong>Notre accompagnement comprend :</strong></p>
+                <ul>
+                    <li><b>Étude de marché et validation</b> : Analyse de la concurrence, identification du public cible, validation du concept.</li>
+                    <li><b>Business plan et stratégie</b> : Élaboration d'un business plan complet et définition d'une stratégie de croissance.</li>
+                    <li><b>Formalités administratives</b> : Assistance pour toutes les démarches de création d'entreprise.</li>
+                    <li><b>Stratégie digitale</b> : Définition de votre présence en ligne et de votre stratégie d'acquisition.</li>
+                    <li><b>Recherche de financement</b> : Préparation aux levées de fonds et identification des aides disponibles.</li>
+                    <li><b>Mise en relation</b> : Accès à notre réseau de partenaires et prestataires qualifiés.</li>
+                </ul>
+                
+                <p><strong>Notre méthodologie :</strong></p>
+                <ul>
+                    <li>Analyse approfondie de votre projet et de vos besoins</li>
+                    <li>Définition d'objectifs clairs et mesurables</li>
+                    <li>Élaboration d'un plan d'action personnalisé</li>
+                    <li>Points de suivi réguliers pour mesurer les progrès</li>
+                    <li>Adaptation de la stratégie selon les résultats obtenus</li>
+                </ul>
+                
+                <p>Notre accompagnement est pensé pour être flexible et s'adapter à votre rythme et à vos objectifs, que vous soyez au stade de l'idée ou déjà en phase de développement.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="formationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h3>Formation et Support</h3>
+                <p>Notre service de Formation et Support vous permet de maîtriser pleinement les outils d'automatisation mis en place et de disposer d'une assistance continue pour optimiser leur utilisation.</p>
+                
+                <p><strong>Notre offre de formation comprend :</strong></p>
+                <ul>
+                    <li><b>Formation initiale</b> : Prise en main des outils d'automatisation adaptée à votre niveau technique.</li>
+                    <li><b>Ateliers pratiques</b> : Sessions interactives pour maîtriser les fonctionnalités avancées.</li>
+                    <li><b>Documentation personnalisée</b> : Guides et procédures spécifiques à votre configuration.</li>
+                    <li><b>Formation continue</b> : Mise à jour régulière de vos connaissances selon l'évolution des outils.</li>
+                    <li><b>Formation d'équipe</b> : Programmes adaptés pour former l'ensemble de vos collaborateurs.</li>
+                </ul>
+                
+                <p><strong>Notre support inclut :</strong></p>
+                <ul>
+                    <li>Assistance technique par email, téléphone ou visioconférence</li>
+                    <li>Résolution des problèmes et dépannage rapide</li>
+                    <li>Audits réguliers pour optimiser l'utilisation de vos outils</li>
+                    <li>Conseils personnalisés pour améliorer vos processus</li>
+                    <li>Maintenance et mises à jour des solutions déployées</li>
+                </ul>
+                
+                <p>Notre objectif est de vous rendre autonome rapidement tout en restant à vos côtés pour vous accompagner dans l'évolution de vos besoins. Nous nous adaptons à votre niveau technique et vous proposons un parcours de formation sur mesure.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -1176,21 +1204,20 @@
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.classList.contains('service-btn')) {
-                    return; // Skip for service buttons that open modals
-                }
-                e.preventDefault();
+                if (!this.classList.contains('service-btn')) {
+                    e.preventDefault();
 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
 
-                // Close mobile menu if open
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
                 }
             });
         });
@@ -1219,40 +1246,70 @@
 
         // Service Modal Functionality
         const serviceBtns = document.querySelectorAll('.service-btn');
-        const modals = {
-            automatisation: document.getElementById('automatisationModal'),
-            accompagnement: document.getElementById('accompagnementModal'),
-            formation: document.getElementById('formationModal')
-        };
-        const closeBtns = document.querySelectorAll('.close-modal');
+        const modals = document.querySelectorAll('.modal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
 
         serviceBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const service = btn.getAttribute('data-service');
-                if (modals[service]) {
-                    modals[service].style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                const modal = document.getElementById(`${service}Modal`);
+                if (modal) {
+                    modal.style.display = 'block';
                 }
             });
         });
 
-        closeBtns.forEach(btn => {
+        closeModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const modal = btn.closest('.modal');
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                if (modal) {
+                    modal.style.display = 'none';
+                }
             });
         });
 
-        // Close modal when clicking outside the modal content
         window.addEventListener('click', (e) => {
-            Object.values(modals).forEach(modal => {
+            modals.forEach(modal => {
                 if (e.target === modal) {
                     modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
                 }
             });
+        });
+
+        // Formspree form handling with success message
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: this.method,
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    formSuccess.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.style.display = 'none';
+                    }, 5000);
+                } else {
+                    console.error('Formspree submission error');
+                    alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+            }
         });
     </script>
 </body>
