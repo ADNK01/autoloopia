@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -618,6 +617,39 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Success message for form submission */
+        .form-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Language switcher styles */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+            cursor: pointer;
+        }
+
+        .language-switcher select {
+            padding: 0.3rem 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Hide English content by default */
+        [lang="en"] {
+            display: none;
+        }
+
         @media (max-width: 992px) {
             .about-grid,
             .contact-grid {
@@ -670,17 +702,6 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Success message for form submission */
-        .form-success {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -693,13 +714,19 @@
             </a>
             <button class="mobile-menu-btn">☰</button>
             <ul class="nav-menu">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#features">Avantages</a></li>
-                <li><a href="#pricing">Tarifs</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="btn btn-primary">Demander une démo</a></li>
+                <li><a href="#services" lang="fr">Services</a><a href="#services" lang="en">Services</a></li>
+                <li><a href="#about" lang="fr">À propos</a><a href="#about" lang="en">About</a></li>
+                <li><a href="#features" lang="fr">Avantages</a><a href="#features" lang="en">Benefits</a></li>
+                <li><a href="#pricing" lang="fr">Tarifs</a><a href="#pricing" lang="en">Pricing</a></li>
+                <li><a href="#testimonials" lang="fr">Témoignages</a><a href="#testimonials" lang="en">Testimonials</a></li>
+                <li><a href="#contact" lang="fr">Contact</a><a href="#contact" lang="en">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary" lang="fr">Demander une démo</a><a href="#contact" class="btn btn-primary" lang="en">Request a demo</a></li>
+                <li class="language-switcher">
+                    <select id="language-select">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
             </ul>
         </div>
     </header>
@@ -707,11 +734,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>L'IA au service de votre réussite entrepreneuriale</h2>
-            <p>Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial grâce à nos solutions d'automatisation IA et notre accompagnement personnalisé.</p>
+            <h2 lang="fr">L'IA au service de votre réussite entrepreneuriale</h2>
+            <h2 lang="en">AI powering your entrepreneurial success</h2>
+            <p lang="fr">Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial grâce à nos solutions d'automatisation IA et notre accompagnement personnalisé.</p>
+            <p lang="en">Automate your operational tasks and simplify your entrepreneurial journey with our AI automation solutions and personalized guidance.</p>
             <div class="hero-buttons">
-                <a href="#services" class="btn btn-outline">Découvrir nos services</a>
-                <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                <a href="#services" class="btn btn-outline" lang="fr">Découvrir nos services</a>
+                <a href="#services" class="btn btn-outline" lang="en">Discover our services</a>
+                <a href="#contact" class="btn btn-secondary" lang="fr">Nous contacter</a>
+                <a href="#contact" class="btn btn-secondary" lang="en">Contact us</a>
             </div>
         </div>
     </section>
@@ -720,29 +751,40 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Services</h2>
-                <p>Des solutions complètes pour automatiser vos processus et accélérer votre croissance</p>
+                <h2 lang="fr">Nos Services</h2>
+                <h2 lang="en">Our Services</h2>
+                <p lang="fr">Des solutions complètes pour automatiser vos processus et accélérer votre croissance</p>
+                <p lang="en">Comprehensive solutions to automate your processes and accelerate your growth</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-content">
-                        <h3>Automatisation IA</h3>
-                        <p>Optimisez vos opérations grâce à nos solutions d'automatisation intelligente. Gagnez du temps et réduisez les erreurs en automatisant vos tâches répétitives.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="automatisation">En savoir plus</a>
+                        <h3 lang="fr">Automatisation IA</h3>
+                        <h3 lang="en">AI Automation</h3>
+                        <p lang="fr">Optimisez vos opérations grâce à nos solutions d'automatisation intelligente. Gagnez du temps et réduisez les erreurs en automatisant vos tâches répétitives.</p>
+                        <p lang="en">Optimize your operations with our intelligent automation solutions. Save time and reduce errors by automating your repetitive tasks.</p>
+                        <a href="#" class="btn btn-outline service-btn" data-service="automatisation" lang="fr">En savoir plus</a>
+                        <a href="#" class="btn btn-outline service-btn" data-service="automatisation" lang="en">Learn more</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-content">
-                        <h3>Accompagnement Entrepreneurial</h3>
-                        <p>Simplifiez votre parcours de création d'entreprise avec notre accompagnement personnalisé. De la conception à la mise en œuvre, nous sommes à vos côtés.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="accompagnement">En savoir plus</a>
+                        <h3 lang="fr">Accompagnement Entrepreneurial</h3>
+                        <h3 lang="en">Business Coaching</h3>
+                        <p lang="fr">Simplifiez votre parcours de création d'entreprise avec notre accompagnement personnalisé. De la conception à la mise en œuvre, nous sommes à vos côtés.</p>
+                        <p lang="en">Simplify your business creation journey with our personalized coaching. From concept to implementation, we're by your side.</p>
+                        <a href="#" class="btn btn-outline service-btn" data-service="accompagnement" lang="fr">En savoir plus</a>
+                        <a href="#" class="btn btn-outline service-btn" data-service="accompagnement" lang="en">Learn more</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-content">
-                        <h3>Formation et Support</h3>
-                        <p>Bénéficiez d'une formation complète et d'un support continu pour maîtriser vos outils d'automatisation et optimiser votre efficacité opérationnelle.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="formation">En savoir plus</a>
+                        <h3 lang="fr">Formation et Support</h3>
+                        <h3 lang="en">Training and Support</h3>
+                        <p lang="fr">Bénéficiez d'une formation complète et d'un support continu pour maîtriser vos outils d'automatisation et optimiser votre efficacité opérationnelle.</p>
+                        <p lang="en">Benefit from comprehensive training and ongoing support to master your automation tools and optimize your operational efficiency.</p>
+                        <a href="#" class="btn btn-outline service-btn" data-service="formation" lang="fr">En savoir plus</a>
+                        <a href="#" class="btn btn-outline service-btn" data-service="formation" lang="en">Learn more</a>
                     </div>
                 </div>
             </div>
@@ -754,11 +796,16 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h2>Qui sommes-nous ?</h2>
-                    <p>AutoloopIA est née d'une vision simple : rendre les technologies d'automatisation IA accessibles à tous les entrepreneurs, quelle que soit leur taille ou leur secteur d'activité.</p>
-                    <p>Notre équipe combine une expertise pointue en intelligence artificielle et une connaissance approfondie des défis entrepreneuriaux pour vous offrir des solutions sur mesure qui vous permettent de vous concentrer sur votre cœur de métier.</p>
-                    <p>Grâce à notre modèle innovant, nous proposons des services de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
-                    <a href="#contact" class="btn btn-primary">Parlons de votre projet</a>
+                    <h2 lang="fr">Qui sommes-nous ?</h2>
+                    <h2 lang="en">Who are we?</h2>
+                    <p lang="fr">AutoloopIA est née d'une vision simple : rendre les technologies d'automatisation IA accessibles à tous les entrepreneurs, quelle que soit leur taille ou leur secteur d'activité.</p>
+                    <p lang="en">AutoloopIA was born from a simple vision: making AI automation technologies accessible to all entrepreneurs, regardless of their size or industry.</p>
+                    <p lang="fr">Notre équipe combine une expertise pointue en intelligence artificielle et une connaissance approfondie des défis entrepreneuriaux pour vous offrir des solutions sur mesure qui vous permettent de vous concentrer sur votre cœur de métier.</p>
+                    <p lang="en">Our team combines in-depth expertise in artificial intelligence with a thorough understanding of entrepreneurial challenges to offer you tailored solutions that allow you to focus on your core business.</p>
+                    <p lang="fr">Grâce à notre modèle innovant, nous proposons des services de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
+                    <p lang="en">Thanks to our innovative model, we offer high-quality services at competitive prices, with customization tailored to your specific needs.</p>
+                    <a href="#contact" class="btn btn-primary" lang="fr">Parlons de votre projet</a>
+                    <a href="#contact" class="btn btn-primary" lang="en">Let's talk about your project</a>
                 </div>
                 <div class="about-image">
                     <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_bd9fa3b8-f21d-4fff-93ba-6dfb719be3b5" alt="Logo AutoloopIA" style="width: 100%; max-width: 400px; margin: 0 auto; display: block;">
@@ -771,39 +818,53 @@
     <section id="features" class="features">
         <div class="container">
             <div class="section-title">
-                <h2>Pourquoi nous choisir ?</h2>
-                <p>Des avantages concrets pour votre entreprise</p>
+                <h2 lang="fr">Pourquoi nous choisir ?</h2>
+                <h2 lang="en">Why choose us?</h2>
+                <p lang="fr">Des avantages concrets pour votre entreprise</p>
+                <p lang="en">Concrete benefits for your business</p>
             </div>
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon">🚀</div>
-                    <h3>Gain de temps</h3>
-                    <p>Réduisez jusqu'à 70% le temps consacré aux tâches administratives et opérationnelles.</p>
+                    <h3 lang="fr">Gain de temps</h3>
+                    <h3 lang="en">Time savings</h3>
+                    <p lang="fr">Réduisez jusqu'à 70% le temps consacré aux tâches administratives et opérationnelles.</p>
+                    <p lang="en">Reduce time spent on administrative and operational tasks by up to 70%.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
-                    <h3>Réduction des coûts</h3>
-                    <p>Optimisez vos ressources et réduisez vos coûts opérationnels grâce à l'automatisation.</p>
+                    <h3 lang="fr">Réduction des coûts</h3>
+                    <h3 lang="en">Cost reduction</h3>
+                    <p lang="fr">Optimisez vos ressources et réduisez vos coûts opérationnels grâce à l'automatisation.</p>
+                    <p lang="en">Optimize your resources and reduce operational costs through automation.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🔍</div>
-                    <h3>Expertise double</h3>
-                    <p>Bénéficiez de notre expertise combinée en IA et en création d'entreprise.</p>
+                    <h3 lang="fr">Expertise double</h3>
+                    <h3 lang="en">Dual expertise</h3>
+                    <p lang="fr">Bénéficiez de notre expertise combinée en IA et en création d'entreprise.</p>
+                    <p lang="en">Benefit from our combined expertise in AI and business creation.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">📈</div>
-                    <h3>Scalabilité</h3>
-                    <p>Nos solutions évoluent avec votre entreprise, de la création à la croissance.</p>
+                    <h3 lang="fr">Scalabilité</h3>
+                    <h3 lang="en">Scalability</h3>
+                    <p lang="fr">Nos solutions évoluent avec votre entreprise, de la création à la croissance.</p>
+                    <p lang="en">Our solutions evolve with your business, from creation to growth.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🛠️</div>
-                    <h3>Personnalisation</h3>
-                    <p>Des solutions adaptées à vos besoins spécifiques et à votre secteur d'activité.</p>
+                    <h3 lang="fr">Personnalisation</h3>
+                    <h3 lang="en">Customization</h3>
+                    <p lang="fr">Des solutions adaptées à vos besoins spécifiques et à votre secteur d'activité.</p>
+                    <p lang="en">Solutions tailored to your specific needs and industry.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">🤝</div>
-                    <h3>Accompagnement continu</h3>
-                    <p>Un support dédié et une formation complète pour maximiser votre autonomie.</p>
+                    <h3 lang="fr">Accompagnement continu</h3>
+                    <h3 lang="en">Ongoing support</h3>
+                    <p lang="fr">Un support dédié et une formation complète pour maximiser votre autonomie.</p>
+                    <p lang="en">Dedicated support and comprehensive training to maximize your autonomy.</p>
                 </div>
             </div>
         </div>
@@ -813,67 +874,95 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Formules</h2>
-                <p>Des solutions adaptées à chaque étape de votre développement</p>
+                <h2 lang="fr">Nos Formules</h2>
+                <h2 lang="en">Our Plans</h2>
+                <p lang="fr">Des solutions adaptées à chaque étape de votre développement</p>
+                <p lang="en">Solutions adapted to each stage of your development</p>
             </div>
             <div class="service-cards">
                 <div class="service-card">
                     <div class="service-card-header">
-                        <h3>Entrepreneur Débutant</h3>
+                        <h3 lang="fr">Entrepreneur Débutant</h3>
+                        <h3 lang="en">Beginning Entrepreneur</h3>
                     </div>
                     <div class="service-card-body">
-                        <p class="service-card-price">1 500€ <span>+ 99€/mois</span></p>
-                        <p>Idéal pour les entrepreneurs en phase de lancement</p>
+                        <p class="service-card-price">1 500€ <span lang="fr">+ 99€/mois</span><span lang="en">+ €99/month</span></p>
+                        <p lang="fr">Idéal pour les entrepreneurs en phase de lancement</p>
+                        <p lang="en">Ideal for entrepreneurs in the launch phase</p>
                         <ul class="service-card-features">
-                            <li>Accompagnement aux formalités de création</li>
-                            <li>Mise en place de l'infrastructure digitale de base</li>
-                            <li>Automatisation de la gestion documentaire</li>
-                            <li>Chatbot simple pour votre site web</li>
-                            <li>Support par email</li>
+                            <li lang="fr">Accompagnement aux formalités de création</li>
+                            <li lang="en">Support with startup formalities</li>
+                            <li lang="fr">Mise en place de l'infrastructure digitale de base</li>
+                            <li lang="en">Setup of basic digital infrastructure</li>
+                            <li lang="fr">Automatisation de la gestion documentaire</li>
+                            <li lang="en">Document management automation</li>
+                            <li lang="fr">Chatbot simple pour votre site web</li>
+                            <li lang="en">Simple chatbot for your website</li>
+                            <li lang="fr">Support par email</li>
+                            <li lang="en">Email support</li>
                         </ul>
                     </div>
                     <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
-                        <h3>Business Booster</h3>
+                        <h3 lang="fr">Business Booster</h3>
+                        <h3 lang="en">Business Booster</h3>
                     </div>
                     <div class="service-card-body">
-                        <p class="service-card-price">3 500€ <span>+ 249€/mois</span></p>
-                        <p>Idéal pour les TPE/PME en phase de croissance</p>
+                        <p class="service-card-price">3 500€ <span lang="fr">+ 249€/mois</span><span lang="en">+ €249/month</span></p>
+                        <p lang="fr">Idéal pour les TPE/PME en phase de croissance</p>
+                        <p lang="en">Ideal for SMEs in growth phase</p>
                         <ul class="service-card-features">
-                            <li>Tous les services du pack "Entrepreneur Débutant"</li>
-                            <li>Business plan complet</li>
-                            <li>Automatisation comptable</li>
-                            <li>CRM intelligent</li>
-                            <li>Automatisation des réseaux sociaux</li>
-                            <li>Support prioritaire par téléphone</li>
+                            <li lang="fr">Tous les services du pack "Entrepreneur Débutant"</li>
+                            <li lang="en">All services from the "Beginning Entrepreneur" package</li>
+                            <li lang="fr">Business plan complet</li>
+                            <li lang="en">Complete business plan</li>
+                            <li lang="fr">Automatisation comptable</li>
+                            <li lang="en">Accounting automation</li>
+                            <li lang="fr">CRM intelligent</li>
+                            <li lang="en">Intelligent CRM</li>
+                            <li lang="fr">Automatisation des réseaux sociaux</li>
+                            <li lang="en">Social media automation</li>
+                            <li lang="fr">Support prioritaire par téléphone</li>
+                            <li lang="en">Priority phone support</li>
                         </ul>
                     </div>
                     <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
-                        <h3>Croissance Accélérée</h3>
+                        <h3 lang="fr">Croissance Accélérée</h3>
+                        <h3 lang="en">Accelerated Growth</h3>
                     </div>
                     <div class="service-card-body">
-                        <p class="service-card-price">7 500€ <span>+ 499€/mois</span></p>
-                        <p>Idéal pour les entreprises établies visant une optimisation complète</p>
+                        <p class="service-card-price">7 500€ <span lang="fr">+ 499€/mois</span><span lang="en">+ €499/month</span></p>
+                        <p lang="fr">Idéal pour les entreprises établies visant une optimisation complète</p>
+                        <p lang="en">Ideal for established businesses seeking complete optimization</p>
                         <ul class="service-card-features">
-                            <li>Tous les services du pack "Business Booster"</li>
-                            <li>Stratégie de lancement complète</li>
-                            <li>Automatisation marketing avancée</li>
-                            <li>Workflows intelligents personnalisés</li>
-                            <li>Automatisation des processus de décision</li>
-                            <li>Chef de projet dédié</li>
+                            <li lang="fr">Tous les services du pack "Business Booster"</li>
+                            <li lang="en">All services from the "Business Booster" package</li>
+                            <li lang="fr">Stratégie de lancement complète</li>
+                            <li lang="en">Complete launch strategy</li>
+                            <li lang="fr">Automatisation marketing avancée</li>
+                            <li lang="en">Advanced marketing automation</li>
+                            <li lang="fr">Workflows intelligents personnalisés</li>
+                            <li lang="en">Custom intelligent workflows</li>
+                            <li lang="fr">Automatisation des processus de décision</li>
+                            <li lang="en">Decision process automation</li>
+                            <li lang="fr">Chef de projet dédié</li>
+                            <li lang="en">Dedicated project manager</li>
                         </ul>
                     </div>
                     <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
+                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
                     </div>
                 </div>
             </div>
@@ -884,37 +973,45 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Ce que disent nos clients</h2>
-                <p>Découvrez les témoignages de ceux qui nous font confiance</p>
+                <h2 lang="fr">Ce que disent nos clients</h2>
+                <h2 lang="en">What our clients say</h2>
+                <p lang="fr">Découvrez les témoignages de ceux qui nous font confiance</p>
+                <p lang="en">Discover testimonials from those who trust us</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-content">"Grâce à AutoloopIA, j'ai pu automatiser ma gestion administrative et gagner plus de 15 heures par semaine. Un gain de temps inestimable qui me permet de me concentrer sur le développement de mon entreprise."</p>
+                    <p class="testimonial-content" lang="fr">"Grâce à AutoloopIA, j'ai pu automatiser ma gestion administrative et gagner plus de 15 heures par semaine. Un gain de temps inestimable qui me permet de me concentrer sur le développement de mon entreprise."</p>
+                    <p class="testimonial-content" lang="en">"Thanks to AutoloopIA, I was able to automate my administrative management and save more than 15 hours per week. This invaluable time saving allows me to focus on developing my business."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">SM</div>
                         <div class="testimonial-author-info">
-                            <h4>Marcus lawrence</h4>
-                            <p>Fondateur, Agence de Communication</p>
+                            <h4>Sophie Martin</h4>
+                            <p lang="fr">Fondatrice, Agence de Communication</p>
+                            <p lang="en">Founder, Communication Agency</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-content">"Après 3 mois d'utilisation des solutions d'AutoloopIA, nous avons constaté une réduction de 30% de nos coûts administratifs et une amélioration significative de notre réactivité client."</p>
+                    <p class="testimonial-content" lang="fr">"Après 3 mois d'utilisation des solutions d'AutoloopIA, nous avons constaté une réduction de 30% de nos coûts administratifs et une amélioration significative de notre réactivité client."</p>
+                    <p class="testimonial-content" lang="en">"After 3 months of using AutoloopIA solutions, we've seen a 30% reduction in our administrative costs and a significant improvement in our customer responsiveness."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">TD</div>
                         <div class="testimonial-author-info">
-                            <h4>Alice Mundi</h4>
-                            <p>Dirigeante d'une PME de Services</p>
+                            <h4>Thomas Dubois</h4>
+                            <p lang="fr">Dirigeant d'une PME de Services</p>
+                            <p lang="en">Manager of a Service SME</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-content">"L'automatisation de ma facturation, de mes relances et de ma présence sur les réseaux sociaux m'a permis d'augmenter mon chiffre d'affaires de 40% en un an, sans travailler plus d'heures."</p>
+                    <p class="testimonial-content" lang="fr">"L'automatisation de ma facturation, de mes relances et de ma présence sur les réseaux sociaux m'a permis d'augmenter mon chiffre d'affaires de 40% en un an, sans travailler plus d'heures."</p>
+                    <p class="testimonial-content" lang="en">"The automation of my billing, reminders, and social media presence allowed me to increase my revenue by 40% in one year, without working more hours."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-author-avatar">JL</div>
                         <div class="testimonial-author-info">
-                            <h4>Anaïs Collet</h4>
-                            <p>Freelance en Marketing Digital</p>
+                            <h4>Julie Leroy</h4>
+                            <p lang="fr">Freelance en Marketing Digital</p>
+                            <p lang="en">Digital Marketing Freelancer</p>
                         </div>
                     </div>
                 </div>
@@ -926,38 +1023,50 @@
     <section id="faq" class="faq">
         <div class="container">
             <div class="section-title">
-                <h2>Questions Fréquentes</h2>
-                <p>Tout ce que vous devez savoir sur nos services</p>
+                <h2 lang="fr">Questions Fréquentes</h2>
+                <h2 lang="en">Frequently Asked Questions</h2>
+                <p lang="fr">Tout ce que vous devez savoir sur nos services</p>
+                <p lang="en">Everything you need to know about our services</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">Qu'est-ce que le dropservicing d'automatisation IA ?</div>
+                    <div class="faq-question" lang="fr">Qu'est-ce que le dropservicing d'automatisation IA ?</div>
+                    <div class="faq-question" lang="en">What is AI automation dropservicing?</div>
                     <div class="faq-answer">
-                        <p>Le dropservicing d'automatisation IA est un modèle d'affaires innovant qui consiste à proposer des services d'automatisation basés sur l'intelligence artificielle sans nécessairement développer toutes les technologies en interne. Nous combinons notre expertise en IA avec un réseau de prestataires spécialisés pour vous offrir des solutions de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
+                        <p lang="fr">Le dropservicing d'automatisation IA est un modèle d'affaires innovant qui consiste à proposer des services d'automatisation basés sur l'intelligence artificielle sans nécessairement développer toutes les technologies en interne. Nous combinons notre expertise en IA avec un réseau de prestataires spécialisés pour vous offrir des solutions de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
+                        <p lang="en">AI automation dropservicing is an innovative business model that offers automation services based on artificial intelligence without necessarily developing all technologies in-house. We combine our AI expertise with a network of specialized providers to offer you high-quality solutions at competitive prices, with customization tailored to your specific needs.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Combien de temps faut-il pour mettre en place vos solutions ?</div>
+                    <div class="faq-question" lang="fr">Combien de temps faut-il pour mettre en place vos solutions ?</div>
+                    <div class="faq-question" lang="en">How long does it take to implement your solutions?</div>
                     <div class="faq-answer">
-                        <p>Le délai de mise en place varie selon la complexité de vos besoins et le package choisi. Pour le pack "Entrepreneur Débutant", comptez environ 2-3 semaines. Pour le pack "Business Booster", le déploiement prend généralement 4-6 semaines. Pour le pack "Croissance Accélérée", qui inclut des solutions plus personnalisées, prévoyez 6-8 semaines. Dans tous les cas, nous établissons un calendrier précis dès le début du projet et vous tenons informé de chaque étape.</p>
+                        <p lang="fr">Le délai de mise en place varie selon la complexité de vos besoins et le package choisi. Pour le pack "Entrepreneur Débutant", comptez environ 2-3 semaines. Pour le pack "Business Booster", le déploiement prend généralement 4-6 semaines. Pour le pack "Croissance Accélérée", qui inclut des solutions plus personnalisées, prévoyez 6-8 semaines. Dans tous les cas, nous établissons un calendrier précis dès le début du projet et vous tenons informé de chaque étape.</p>
+                        <p lang="en">Implementation time varies depending on the complexity of your needs and the chosen package. For the "Beginning Entrepreneur" package, count about 2-3 weeks. For the "Business Booster" package, deployment typically takes 4-6 weeks. For the "Accelerated Growth" package, which includes more customized solutions, plan for 6-8 weeks. In all cases, we establish a precise schedule at the beginning of the project and keep you informed of each step.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Faut-il des compétences techniques pour utiliser vos solutions ?</div>
+                    <div class="faq-question" lang="fr">Faut-il des compétences techniques pour utiliser vos solutions ?</div>
+                    <div class="faq-question" lang="en">Do I need technical skills to use your solutions?</div>
                     <div class="faq-answer">
-                        <p>Non, nos solutions sont conçues pour être intuitives et accessibles à tous, sans nécessiter de compétences techniques particulières. Nous assurons une formation complète à l'utilisation de nos outils et proposons un support continu pour répondre à toutes vos questions. Notre objectif est de vous rendre autonome rapidement tout en restant disponibles pour vous accompagner selon vos besoins.</p>
+                        <p lang="fr">Non, nos solutions sont conçues pour être intuitives et accessibles à tous, sans nécessiter de compétences techniques particulières. Nous assurons une formation complète à l'utilisation de nos outils et proposons un support continu pour répondre à toutes vos questions. Notre objectif est de vous rendre autonome rapidement tout en restant disponibles pour vous accompagner selon vos besoins.</p>
+                        <p lang="en">No, our solutions are designed to be intuitive and accessible to everyone, without requiring special technical skills. We provide comprehensive training on using our tools and offer ongoing support to answer all your questions. Our goal is to make you autonomous quickly while remaining available to assist you according to your needs.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Comment garantissez-vous la sécurité de mes données ?</div>
+                    <div class="faq-question" lang="fr">Comment garantissez-vous la sécurité de mes données ?</div>
+                    <div class="faq-question" lang="en">How do you ensure the security of my data?</div>
                     <div class="faq-answer">
-                        <p>La sécurité de vos données est notre priorité absolue. Nous appliquons les meilleures pratiques en matière de protection des données : chiffrement de bout en bout, authentification multi-facteurs, contrôles d'accès stricts, et sauvegardes régulières. Toutes nos solutions sont conformes au RGPD et nous réalisons des audits de sécurité réguliers. Nous signons également des accords de confidentialité stricts avec tous nos prestataires.</p>
+                        <p lang="fr">La sécurité de vos données est notre priorité absolue. Nous appliquons les meilleures pratiques en matière de protection des données : chiffrement de bout en bout, authentification multi-facteurs, contrôles d'accès stricts, et sauvegardes régulières. Toutes nos solutions sont conformes au RGPD et nous réalisons des audits de sécurité réguliers. Nous signons également des accords de confidentialité stricts avec tous nos prestataires.</p>
+                        <p lang="en">The security of your data is our top priority. We apply best practices in data protection: end-to-end encryption, multi-factor authentication, strict access controls, and regular backups. All our solutions are GDPR compliant and we conduct regular security audits. We also sign strict confidentiality agreements with all our providers.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Puis-je faire évoluer mon forfait avec le temps ?</div>
+                    <div class="faq-question" lang="fr">Puis-je faire évoluer mon forfait avec le temps ?</div>
+                    <div class="faq-question" lang="en">Can I upgrade my plan over time?</div>
                     <div class="faq-answer">
-                        <p>Absolument ! Nos forfaits sont conçus pour évoluer avec votre entreprise. Vous pouvez facilement passer à un niveau supérieur lorsque vos besoins augmentent ou ajouter des services à la carte pour compléter votre package. Nous réalisons des revues trimestrielles pour évaluer si votre solution actuelle répond toujours parfaitement à vos besoins et vous conseiller sur les évolutions possibles.</p>
+                        <p lang="fr">Absolument ! Nos forfaits sont conçus pour évoluer avec votre entreprise. Vous pouvez facilement passer à un niveau supérieur lorsque vos besoins augmentent ou ajouter des services à la carte pour compléter votre package. Nous réalisons des revues trimestrielles pour évaluer si votre solution actuelle répond toujours parfaitement à vos besoins et vous conseiller sur les évolutions possibles.</p>
+                        <p lang="en">Absolutely! Our plans are designed to evolve with your business. You can easily upgrade to a higher level when your needs increase or add à la carte services to complement your package. We conduct quarterly reviews to assess whether your current solution still perfectly meets your needs and advise you on possible evolutions.</p>
                     </div>
                 </div>
             </div>
@@ -967,9 +1076,12 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Prêt à transformer votre entreprise ?</h2>
-            <p>Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nos solutions d'automatisation IA peuvent révolutionner votre façon de travailler.</p>
-            <a href="#contact" class="btn btn-outline">Demander une démo</a>
+            <h2 lang="fr">Prêt à transformer votre entreprise ?</h2>
+            <h2 lang="en">Ready to transform your business?</h2>
+            <p lang="fr">Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nos solutions d'automatisation IA peuvent révolutionner votre façon de travailler.</p>
+            <p lang="en">Contact us today for a free consultation and discover how our AI automation solutions can revolutionize your way of working.</p>
+            <a href="#contact" class="btn btn-outline" lang="fr">Demander une démo</a>
+            <a href="#contact" class="btn btn-outline" lang="en">Request a demo</a>
         </div>
     </section>
 
@@ -977,58 +1089,77 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contactez-nous</h2>
-                <p>Nous sommes là pour répondre à toutes vos questions</p>
+                <h2 lang="fr">Contactez-nous</h2>
+                <h2 lang="en">Contact us</h2>
+                <p lang="fr">Nous sommes là pour répondre à toutes vos questions</p>
+                <p lang="en">We're here to answer all your questions</p>
             </div>
             <div class="contact-form-container">
-                <div id="form-success" class="form-success">
+                <div id="form-success" class="form-success" lang="fr">
                     Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
+                </div>
+                <div id="form-success-en" class="form-success" lang="en">
+                    Thank you for your message! We will respond as soon as possible.
                 </div>
                 <!-- FORMSPREE INTEGRATION -->
                 <form id="contact-form" action="https://formspree.io/f/xkgjynyo" method="POST">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Nom et prénom</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required>
+                            <label for="name" lang="fr">Nom et prénom</label>
+                            <label for="name" lang="en">Full name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom / Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Votre email" required>
+                            <label for="email" lang="fr">Email</label>
+                            <label for="email" lang="en">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Votre email / Your email" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="company">Entreprise</label>
-                            <input type="text" id="company" name="company" class="form-control" placeholder="Votre entreprise">
+                            <label for="company" lang="fr">Entreprise</label>
+                            <label for="company" lang="en">Company</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Votre entreprise / Your company">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet</label>
+                            <label for="subject" lang="fr">Sujet</label>
+                            <label for="subject" lang="en">Subject</label>
                             <select id="subject" name="subject" class="form-control" required>
-                                <option value="" selected disabled>Sélectionnez un sujet</option>
-                                <option value="info">Demande d'information</option>
-                                <option value="quote">Demande de devis</option>
-                                <option value="demo">Demande de démo</option>
-                                <option value="support">Support technique</option>
-                                <option value="other">Autre</option>
+                                <option value="" selected disabled lang="fr">Sélectionnez un sujet</option>
+                                <option value="" selected disabled lang="en">Select a subject</option>
+                                <option value="info" lang="fr">Demande d'information</option>
+                                <option value="info" lang="en">Information request</option>
+                                <option value="quote" lang="fr">Demande de devis</option>
+                                <option value="quote" lang="en">Quote request</option>
+                                <option value="demo" lang="fr">Demande de démo</option>
+                                <option value="demo" lang="en">Demo request</option>
+                                <option value="support" lang="fr">Support technique</option>
+                                <option value="support" lang="en">Technical support</option>
+                                <option value="other" lang="fr">Autre</option>
+                                <option value="other" lang="en">Other</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Votre message" required></textarea>
+                        <label for="message" lang="fr">Message</label>
+                        <label for="message" lang="en">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Votre message / Your message" required></textarea>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" id="rgpd" name="rgpd" class="form-check-input" required>
-                        <label for="rgpd" class="form-check-label">J'accepte que mes données soient traitées conformément à la politique de confidentialité d'AutoloopIA.</label>
+                        <label for="rgpd" class="form-check-label" lang="fr">J'accepte que mes données soient traitées conformément à la politique de confidentialité d'AutoloopIA.</label>
+                        <label for="rgpd" class="form-check-label" lang="en">I agree that my data will be processed in accordance with AutoloopIA's privacy policy.</label>
                     </div>
                     <div class="form-group" style="margin-top: 1.5rem;">
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <button type="submit" class="btn btn-primary" lang="fr">Envoyer</button>
+                        <button type="submit" class="btn btn-primary" lang="en">Send</button>
                     </div>
                 </form>
             </div>
             <div class="contact-grid" style="margin-top: 3rem;">
                 <div class="contact-info">
-                    <h3>Informations de contact</h3>
+                    <h3 lang="fr">Informations de contact</h3>
+                    <h3 lang="en">Contact information</h3>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">📍</div>
                         <p>Montréal, Québec</p>
@@ -1039,7 +1170,8 @@
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon">⏰</div>
-                        <p>Lundi - Vendredi: 9h00 - 18h00</p>
+                        <p lang="fr">Lundi - Vendredi: 9h00 - 18h00</p>
+                        <p lang="en">Monday - Friday: 9:00 AM - 6:00 PM</p>
                     </div>
                 </div>
                 <div class="contact-map">
@@ -1055,46 +1187,53 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>AutoloopIA Solutions</h3>
-                    <p>L'IA au service de votre réussite entrepreneuriale. Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial.</p>
+                    <p lang="fr">L'IA au service de votre réussite entrepreneuriale. Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial.</p>
+                    <p lang="en">AI at the service of your entrepreneurial success. Automate your operational tasks and simplify your entrepreneurial journey.</p>
                     <div class="social-links" style="margin-top: 1.5rem;">
                         <a href="https://www.linkedin.com/company/autoloop-ai/about/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Liens rapides</h3>
+                    <h3 lang="fr">Liens rapides</h3>
+                    <h3 lang="en">Quick links</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#features">Avantages</a></li>
-                        <li><a href="#pricing">Tarifs</a></li>
-                        <li><a href="#testimonials">Témoignages</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#services" lang="fr">Services</a><a href="#services" lang="en">Services</a></li>
+                        <li><a href="#about" lang="fr">À propos</a><a href="#about" lang="en">About</a></li>
+                        <li><a href="#features" lang="fr">Avantages</a><a href="#features" lang="en">Benefits</a></li>
+                        <li><a href="#pricing" lang="fr">Tarifs</a><a href="#pricing" lang="en">Pricing</a></li>
+                        <li><a href="#testimonials" lang="fr">Témoignages</a><a href="#testimonials" lang="en">Testimonials</a></li>
+                        <li><a href="#faq" lang="fr">FAQ</a><a href="#faq" lang="en">FAQ</a></li>
+                        <li><a href="#contact" lang="fr">Contact</a><a href="#contact" lang="en">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Services</h3>
+                    <h3 lang="fr">Services</h3>
+                    <h3 lang="en">Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#" class="service-btn" data-service="automatisation">Automatisation IA</a></li>
-                        <li><a href="#" class="service-btn" data-service="accompagnement">Accompagnement Entrepreneurial</a></li>
-                        <li><a href="#" class="service-btn" data-service="formation">Formation et Support</a></li>
-                        <li><a href="#contact">Consultation Personnalisée</a></li>
+                        <li><a href="#" class="service-btn" data-service="automatisation" lang="fr">Automatisation IA</a><a href="#" class="service-btn" data-service="automatisation" lang="en">AI Automation</a></li>
+                        <li><a href="#" class="service-btn" data-service="accompagnement" lang="fr">Accompagnement Entrepreneurial</a><a href="#" class="service-btn" data-service="accompagnement" lang="en">Business Coaching</a></li>
+                        <li><a href="#" class="service-btn" data-service="formation" lang="fr">Formation et Support</a><a href="#" class="service-btn" data-service="formation" lang="en">Training and Support</a></li>
+                        <li><a href="#contact" lang="fr">Consultation Personnalisée</a><a href="#contact" lang="en">Personalized Consultation</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Inscrivez-vous pour recevoir nos actualités et conseils sur l'automatisation IA.</p>
+                    <h3 lang="fr">Newsletter</h3>
+                    <h3 lang="en">Newsletter</h3>
+                    <p lang="fr">Inscrivez-vous pour recevoir nos actualités et conseils sur l'automatisation IA.</p>
+                    <p lang="en">Subscribe to receive our news and advice on AI automation.</p>
                     <form action="https://formspree.io/f/xayryjdg" method="POST">
                         <div class="form-group" style="margin-top: 1rem;">
-                            <input type="email" name="email_newsletter" class="form-control" placeholder="Votre email" required>
+                            <input type="email" name="email_newsletter" class="form-control" placeholder="Votre email / Your email" required>
                             <input type="hidden" name="form_type" value="newsletter">
                         </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">S'inscrire</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;" lang="fr">S'inscrire</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;" lang="en">Subscribe</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AutoloopIA Solutions. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+                <p lang="fr">&copy; 2025 AutoloopIA Solutions. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+                <p lang="en">&copy; 2025 AutoloopIA Solutions. All rights reserved. | <a href="#">Legal notices</a> | <a href="#">Privacy policy</a></p>
             </div>
         </div>
     </footer>
@@ -1104,29 +1243,45 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-body">
-                <h3>Automatisation IA</h3>
-                <p>Notre service d'Automatisation IA vous permet d'optimiser l'ensemble de vos processus opérationnels grâce à l'intelligence artificielle. Nous identifions les tâches répétitives et chronophages dans votre organisation et mettons en place des solutions d'automatisation sur mesure.</p>
+                <h3 lang="fr">Automatisation IA</h3>
+                <h3 lang="en">AI Automation</h3>
+                <p lang="fr">Notre service d'Automatisation IA vous permet d'optimiser l'ensemble de vos processus opérationnels grâce à l'intelligence artificielle. Nous identifions les tâches répétitives et chronophages dans votre organisation et mettons en place des solutions d'automatisation sur mesure.</p>
+                <p lang="en">Our AI Automation service allows you to optimize all your operational processes thanks to artificial intelligence. We identify repetitive and time-consuming tasks in your organization and implement customized automation solutions.</p>
                 
-                <p><strong>Nos services d'automatisation incluent :</strong></p>
+                <p lang="fr"><strong>Nos services d'automatisation incluent :</strong></p>
+                <p lang="en"><strong>Our automation services include:</strong></p>
                 <ul>
-                    <li><b>Automatisation documentaire</b> : Gestion, classification et extraction intelligente des données de vos documents.</li>
-                    <li><b>Automatisation administrative</b> : Facturation, relances, reporting, et gestion des rendez-vous.</li>
-                    <li><b>Automatisation marketing</b> : Publication sur les réseaux sociaux, emailing, et campagnes marketing.</li>
-                    <li><b>Automatisation des processus métier</b> : Workflow personnalisés selon votre secteur d'activité.</li>
-                    <li><b>Chatbots intelligents</b> : Service client 24/7 et qualification des prospects.</li>
+                    <li lang="fr"><b>Automatisation documentaire</b> : Gestion, classification et extraction intelligente des données de vos documents.</li>
+                    <li lang="en"><b>Document automation</b>: Management, classification, and intelligent data extraction from your documents.</li>
+                    <li lang="fr"><b>Automatisation administrative</b> : Facturation, relances, reporting, et gestion des rendez-vous.</li>
+                    <li lang="en"><b>Administrative automation</b>: Invoicing, reminders, reporting, and appointment management.</li>
+                    <li lang="fr"><b>Automatisation marketing</b> : Publication sur les réseaux sociaux, emailing, et campagnes marketing.</li>
+                    <li lang="en"><b>Marketing automation</b>: Social media posting, email marketing, and marketing campaigns.</li>
+                    <li lang="fr"><b>Automatisation des processus métier</b> : Workflow personnalisés selon votre secteur d'activité.</li>
+                    <li lang="en"><b>Business process automation</b>: Customized workflows according to your industry.</li>
+                    <li lang="fr"><b>Chatbots intelligents</b> : Service client 24/7 et qualification des prospects.</li>
+                    <li lang="en"><b>Intelligent chatbots</b>: 24/7 customer service and lead qualification.</li>
                 </ul>
                 
-                <p><strong>Avantages :</strong></p>
+                <p lang="fr"><strong>Avantages :</strong></p>
+                <p lang="en"><strong>Benefits:</strong></p>
                 <ul>
-                    <li>Gain de temps considérable (jusqu'à 70% sur les tâches automatisées)</li>
-                    <li>Réduction des erreurs humaines</li>
-                    <li>Disponibilité 24/7 de certains services</li>
-                    <li>Réduction des coûts opérationnels</li>
-                    <li>Amélioration de l'expérience client</li>
-                    <li>Libération des ressources pour des tâches à plus forte valeur ajoutée</li>
+                    <li lang="fr">Gain de temps considérable (jusqu'à 70% sur les tâches automatisées)</li>
+                    <li lang="en">Considerable time savings (up to 70% on automated tasks)</li>
+                    <li lang="fr">Réduction des erreurs humaines</li>
+                    <li lang="en">Reduction of human errors</li>
+                    <li lang="fr">Disponibilité 24/7 de certains services</li>
+                    <li lang="en">24/7 availability of certain services</li>
+                    <li lang="fr">Réduction des coûts opérationnels</li>
+                    <li lang="en">Reduction of operational costs</li>
+                    <li lang="fr">Amélioration de l'expérience client</li>
+                    <li lang="en">Improved customer experience</li>
+                    <li lang="fr">Libération des ressources pour des tâches à plus forte valeur ajoutée</li>
+                    <li lang="en">Freeing up resources for higher value-added tasks</li>
                 </ul>
                 
-                <p>Chaque solution est développée spécifiquement pour répondre à vos besoins, en tenant compte de vos outils existants et de vos objectifs de croissance.</p>
+                <p lang="fr">Chaque solution est développée spécifiquement pour répondre à vos besoins, en tenant compte de vos outils existants et de vos objectifs de croissance.</p>
+                <p lang="en">Each solution is specifically developed to meet your needs, taking into account your existing tools and growth objectives.</p>
             </div>
         </div>
     </div>
@@ -1135,29 +1290,45 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-body">
-                <h3>Accompagnement Entrepreneurial</h3>
-                <p>Notre service d'Accompagnement Entrepreneurial vous guide à chaque étape de votre parcours, de l'idée initiale au développement de votre entreprise. Notre approche combine expertise business et technologique pour maximiser vos chances de succès.</p>
+                <h3 lang="fr">Accompagnement Entrepreneurial</h3>
+                <h3 lang="en">Business Coaching</h3>
+                <p lang="fr">Notre service d'Accompagnement Entrepreneurial vous guide à chaque étape de votre parcours, de l'idée initiale au développement de votre entreprise. Notre approche combine expertise business et technologique pour maximiser vos chances de succès.</p>
+                <p lang="en">Our Business Coaching service guides you through every step of your journey, from the initial idea to the development of your business. Our approach combines business and technological expertise to maximize your chances of success.</p>
                 
-                <p><strong>Notre accompagnement comprend :</strong></p>
+                <p lang="fr"><strong>Notre accompagnement comprend :</strong></p>
+                <p lang="en"><strong>Our coaching includes:</strong></p>
                 <ul>
-                    <li><b>Étude de marché et validation</b> : Analyse de la concurrence, identification du public cible, validation du concept.</li>
-                    <li><b>Business plan et stratégie</b> : Élaboration d'un business plan complet et définition d'une stratégie de croissance.</li>
-                    <li><b>Formalités administratives</b> : Assistance pour toutes les démarches de création d'entreprise.</li>
-                    <li><b>Stratégie digitale</b> : Définition de votre présence en ligne et de votre stratégie d'acquisition.</li>
-                    <li><b>Recherche de financement</b> : Préparation aux levées de fonds et identification des aides disponibles.</li>
-                    <li><b>Mise en relation</b> : Accès à notre réseau de partenaires et prestataires qualifiés.</li>
+                    <li lang="fr"><b>Étude de marché et validation</b> : Analyse de la concurrence, identification du public cible, validation du concept.</li>
+                    <li lang="en"><b>Market research and validation</b>: Competitive analysis, target audience identification, concept validation.</li>
+                    <li lang="fr"><b>Business plan et stratégie</b> : Élaboration d'un business plan complet et définition d'une stratégie de croissance.</li>
+                    <li lang="en"><b>Business plan and strategy</b>: Development of a complete business plan and definition of a growth strategy.</li>
+                    <li lang="fr"><b>Formalités administratives</b> : Assistance pour toutes les démarches de création d'entreprise.</li>
+                    <li lang="en"><b>Administrative formalities</b>: Assistance for all business creation procedures.</li>
+                    <li lang="fr"><b>Stratégie digitale</b> : Définition de votre présence en ligne et de votre stratégie d'acquisition.</li>
+                    <li lang="en"><b>Digital strategy</b>: Definition of your online presence and acquisition strategy.</li>
+                    <li lang="fr"><b>Recherche de financement</b> : Préparation aux levées de fonds et identification des aides disponibles.</li>
+                    <li lang="en"><b>Funding research</b>: Preparation for fundraising and identification of available aids.</li>
+                    <li lang="fr"><b>Mise en relation</b> : Accès à notre réseau de partenaires et prestataires qualifiés.</li>
+                    <li lang="en"><b>Networking</b>: Access to our network of partners and qualified service providers.</li>
                 </ul>
                 
-                <p><strong>Notre méthodologie :</strong></p>
+                <p lang="fr"><strong>Notre méthodologie :</strong></p>
+                <p lang="en"><strong>Our methodology:</strong></p>
                 <ul>
-                    <li>Analyse approfondie de votre projet et de vos besoins</li>
-                    <li>Définition d'objectifs clairs et mesurables</li>
-                    <li>Élaboration d'un plan d'action personnalisé</li>
-                    <li>Points de suivi réguliers pour mesurer les progrès</li>
-                    <li>Adaptation de la stratégie selon les résultats obtenus</li>
+                    <li lang="fr">Analyse approfondie de votre projet et de vos besoins</li>
+                    <li lang="en">In-depth analysis of your project and your needs</li>
+                    <li lang="fr">Définition d'objectifs clairs et mesurables</li>
+                    <li lang="en">Definition of clear and measurable objectives</li>
+                    <li lang="fr">Élaboration d'un plan d'action personnalisé</li>
+                    <li lang="en">Development of a personalized action plan</li>
+                    <li lang="fr">Points de suivi réguliers pour mesurer les progrès</li>
+                    <li lang="en">Regular follow-up points to measure progress</li>
+                    <li lang="fr">Adaptation de la stratégie selon les résultats obtenus</li>
+                    <li lang="en">Strategy adaptation based on obtained results</li>
                 </ul>
                 
-                <p>Notre accompagnement est pensé pour être flexible et s'adapter à votre rythme et à vos objectifs, que vous soyez au stade de l'idée ou déjà en phase de développement.</p>
+                <p lang="fr">Notre accompagnement est pensé pour être flexible et s'adapter à votre rythme et à vos objectifs, que vous soyez au stade de l'idée ou déjà en phase de développement.</p>
+                <p lang="en">Our coaching is designed to be flexible and adapt to your pace and objectives, whether you are at the idea stage or already in the development phase.</p>
             </div>
         </div>
     </div>
@@ -1166,33 +1337,79 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-body">
-                <h3>Formation et Support</h3>
-                <p>Notre service de Formation et Support vous permet de maîtriser pleinement les outils d'automatisation mis en place et de disposer d'une assistance continue pour optimiser leur utilisation.</p>
+                <h3 lang="fr">Formation et Support</h3>
+                <h3 lang="en">Training and Support</h3>
+                <p lang="fr">Notre service de Formation et Support vous permet de maîtriser pleinement les outils d'automatisation mis en place et de disposer d'une assistance continue pour optimiser leur utilisation.</p>
+                <p lang="en">Our Training and Support service allows you to fully master the automation tools put in place and have continuous assistance to optimize their use.</p>
                 
-                <p><strong>Notre offre de formation comprend :</strong></p>
+                <p lang="fr"><strong>Notre offre de formation comprend :</strong></p>
+                <p lang="en"><strong>Our training offer includes:</strong></p>
                 <ul>
-                    <li><b>Formation initiale</b> : Prise en main des outils d'automatisation adaptée à votre niveau technique.</li>
-                    <li><b>Ateliers pratiques</b> : Sessions interactives pour maîtriser les fonctionnalités avancées.</li>
-                    <li><b>Documentation personnalisée</b> : Guides et procédures spécifiques à votre configuration.</li>
-                    <li><b>Formation continue</b> : Mise à jour régulière de vos connaissances selon l'évolution des outils.</li>
-                    <li><b>Formation d'équipe</b> : Programmes adaptés pour former l'ensemble de vos collaborateurs.</li>
+                    <li lang="fr"><b>Formation initiale</b> : Prise en main des outils d'automatisation adaptée à votre niveau technique.</li>
+                    <li lang="en"><b>Initial training</b>: Getting started with automation tools adapted to your technical level.</li>
+                    <li lang="fr"><b>Ateliers pratiques</b> : Sessions interactives pour maîtriser les fonctionnalités avancées.</li>
+                    <li lang="en"><b>Practical workshops</b>: Interactive sessions to master advanced features.</li>
+                    <li lang="fr"><b>Documentation personnalisée</b> : Guides et procédures spécifiques à votre configuration.</li>
+                    <li lang="en"><b>Customized documentation</b>: Guides and procedures specific to your configuration.</li>
+                    <li lang="fr"><b>Formation continue</b> : Mise à jour régulière de vos connaissances selon l'évolution des outils.</li>
+                    <li lang="en"><b>Continuous training</b>: Regular updating of your knowledge according to the evolution of tools.</li>
+                    <li lang="fr"><b>Formation d'équipe</b> : Programmes adaptés pour former l'ensemble de vos collaborateurs.</li>
+                    <li lang="en"><b>Team training</b>: Adapted programs to train all your employees.</li>
                 </ul>
                 
-                <p><strong>Notre support inclut :</strong></p>
+                <p lang="fr"><strong>Notre support inclut :</strong></p>
+                <p lang="en"><strong>Our support includes:</strong></p>
                 <ul>
-                    <li>Assistance technique par email, téléphone ou visioconférence</li>
-                    <li>Résolution des problèmes et dépannage rapide</li>
-                    <li>Audits réguliers pour optimiser l'utilisation de vos outils</li>
-                    <li>Conseils personnalisés pour améliorer vos processus</li>
-                    <li>Maintenance et mises à jour des solutions déployées</li>
+                    <li lang="fr">Assistance technique par email, téléphone ou visioconférence</li>
+                    <li lang="en">Technical assistance via email, phone, or video conference</li>
+                    <li lang="fr">Résolution des problèmes et dépannage rapide</li>
+                    <li lang="en">Problem solving and quick troubleshooting</li>
+                    <li lang="fr">Audits réguliers pour optimiser l'utilisation de vos outils</li>
+                    <li lang="en">Regular audits to optimize the use of your tools</li>
+                    <li lang="fr">Conseils personnalisés pour améliorer vos processus</li>
+                    <li lang="en">Personalized advice to improve your processes</li>
+                    <li lang="fr">Maintenance et mises à jour des solutions déployées</li>
+                    <li lang="en">Maintenance and updates of deployed solutions</li>
                 </ul>
                 
-                <p>Notre objectif est de vous rendre autonome rapidement tout en restant à vos côtés pour vous accompagner dans l'évolution de vos besoins. Nous nous adaptons à votre niveau technique et vous proposons un parcours de formation sur mesure.</p>
+                <p lang="fr">Notre objectif est de vous rendre autonome rapidement tout en restant à vos côtés pour vous accompagner dans l'évolution de vos besoins. Nous nous adaptons à votre niveau technique et vous proposons un parcours de formation sur mesure.</p>
+                <p lang="en">Our goal is to make you autonomous quickly while staying by your side to support you in the evolution of your needs. We adapt to your technical level and offer you a customized training path.</p>
             </div>
         </div>
     </div>
 
     <script>
+        // Language switcher functionality
+        const languageSelect = document.getElementById('language-select');
+        
+        // Function to set language
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            // Hide all language elements
+            document.querySelectorAll('[lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show selected language elements
+            document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
+                el.style.display = 'block';
+            });
+            
+            // Special case for inline elements that should be inline
+            document.querySelectorAll(`a[lang="${lang}"]`).forEach(el => {
+                el.style.display = 'inline-block';
+            });
+        }
+        
+        // Initialize with French
+        setLanguage('fr');
+        
+        // Language change event
+        languageSelect.addEventListener('change', function() {
+            setLanguage(this.value);
+        });
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
@@ -1280,6 +1497,7 @@
         // Formspree form handling with success message
         const contactForm = document.getElementById('contact-form');
         const formSuccess = document.getElementById('form-success');
+        const formSuccessEn = document.getElementById('form-success-en');
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -1294,21 +1512,32 @@
                 });
                 
                 if (response.ok) {
-                    // Show success message
-                    formSuccess.style.display = 'block';
+                    // Show success message based on current language
+                    const currentLang = document.documentElement.lang;
+                    if (currentLang === 'fr') {
+                        formSuccess.style.display = 'block';
+                    } else {
+                        formSuccessEn.style.display = 'block';
+                    }
+                    
                     contactForm.reset();
                     
                     // Hide success message after 5 seconds
                     setTimeout(() => {
                         formSuccess.style.display = 'none';
+                        formSuccessEn.style.display = 'none';
                     }, 5000);
                 } else {
                     console.error('Formspree submission error');
-                    alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+                    alert(document.documentElement.lang === 'fr' ? 
+                          'Une erreur est survenue. Veuillez réessayer plus tard.' : 
+                          'An error occurred. Please try again later.');
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+                alert(document.documentElement.lang === 'fr' ? 
+                      'Une erreur est survenue. Veuillez réessayer plus tard.' : 
+                      'An error occurred. Please try again later.');
             }
         });
     </script>
