@@ -3,190 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoloopIA - Automatisation IA et Accompagnement Entrepreneurial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css">
+    <title>Autoloop AI - Intelligence Artificielle pour Entreprises</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #7209b7;
-            --accent-color: #f72585;
-            --dark-color: #1d3557;
-            --light-color: #f8f9fa;
-            --gray-color: #6c757d;
-            --success-color: #4cc9f0;
-            --font-main: 'Poppins', sans-serif;
-            --font-heading: 'Montserrat', sans-serif;
-        }
-
+        /* Reset et base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-blue: #1a237e;
+            --neon-purple: #7c4dff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #2c2c2c;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--neon-purple));
+            --gradient-text: linear-gradient(135deg, var(--neon-purple), #00bcd4);
+        }
+
         body {
-            font-family: var(--font-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
+        .orbitron {
+            font-family: 'Orbitron', monospace;
         }
 
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        .container {
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            width: 100%;
+            background: rgba(26, 35, 126, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        .header-container {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: 50px;
-            margin-right: 1rem;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-        }
-
-        .nav-menu li {
-            margin-left: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-menu a {
-            color: var(--dark-color);
+            color: var(--white);
+            text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-menu a:hover {
-            color: var(--primary-color);
+            color: var(--neon-purple);
         }
 
-        .mobile-menu-btn {
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-purple);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
             display: none;
-            background: none;
-            border: none;
+            color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark-color);
         }
 
+        /* Hero Section */
         .hero {
-            padding: 5rem 0 3rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-align: center;
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g1"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="3" fill="url(%23g1)"/><circle cx="400" cy="100" r="2" fill="url(%23g1)"/><circle cx="600" cy="300" r="2" fill="url(%23g1)"/><circle cx="800" cy="150" r="3" fill="url(%23g1)"/><circle cx="300" cy="450" r="2" fill="url(%23g1)"/><circle cx="700" cy="500" r="3" fill="url(%23g1)"/><circle cx="100" cy="600" r="2" fill="url(%23g1)"/><circle cx="900" cy="700" r="2" fill="url(%23g1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            color: white;
+            background: linear-gradient(135deg, #ffffff, var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
         }
 
-        .hero-buttons {
+        .cta-buttons {
             display: flex;
-            justify-content: center;
             gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .services {
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--neon-purple);
+            color: var(--white);
+            box-shadow: 0 5px 20px rgba(124, 77, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.6);
+            background: #9c27b0;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
             padding: 4rem 0;
-            background-color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        /* Section commune */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .section-title {
@@ -195,23 +266,62 @@
         }
 
         .section-title h2 {
-            font-size: 2rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .value-item h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -219,322 +329,353 @@
         }
 
         .service-card {
-            background-color: var(--light-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            height: 100%;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--neon-purple);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(124, 77, 255, 0.2);
         }
 
-        .service-content {
-            padding: 1.5rem;
+        .service-icon {
+            font-size: 3rem;
+            color: var(--neon-purple);
+            margin-bottom: 1rem;
         }
 
-        .service-content h3 {
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
         }
 
-        .about {
-            padding: 4rem 0;
-            background-color: var(--light-color);
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
         }
 
-        .about-grid {
+        .service-list li {
+            padding: 0.3rem 0;
+            color: #666;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--neon-purple);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background: var(--light-gray);
+        }
+
+        .cases-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
             align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
         }
 
-        .about-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+        .case-content {
+            padding: 2rem;
         }
 
-        .features {
-            padding: 4rem 0;
-            background-color: white;
+        .case-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
         }
 
-        .features-grid {
+        .case-result {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        /* Process Section */
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .feature-item {
+        .process-step {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
+            position: relative;
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .process-step h3 {
+            color: var(--primary-blue);
             margin-bottom: 1rem;
-            color: var(--primary-color);
         }
 
+        /* Testimonials */
         .testimonials {
-            padding: 4rem 0;
-            background-color: var(--light-color);
+            background: var(--light-gray);
         }
 
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .testimonial-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--white);
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-author-avatar {
-            width: 50px;
-            height: 50px;
+        .client-photo {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background-color: var(--gray-color);
+            background: var(--gradient-primary);
+            margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-
-        .cta {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta h2 {
+            color: var(--white);
             font-size: 2rem;
-            color: white;
-            margin-bottom: 1.5rem;
         }
 
-        .cta p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        .pricing {
-            padding: 4rem 0;
-            background-color: white;
-        }
-
-        .service-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .service-card-body {
-            padding: 1.5rem;
-        }
-
-        .service-card-price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-align: center;
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
         }
 
-        .service-card-price span {
-            font-size: 1rem;
-            font-weight: normal;
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #666;
         }
 
-        .service-card-features {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .service-card-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .service-card-footer {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .faq {
-            padding: 4rem 0;
-            background-color: var(--light-color);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            background-color: white;
+        .client-name {
             font-weight: 600;
-            cursor: pointer;
-            position: relative;
+            color: var(--primary-blue);
         }
 
-        .faq-question::after {
-            content: '+';
-            position: absolute;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
+        .client-company {
+            font-size: 0.9rem;
+            color: #666;
         }
 
-        .faq-question.active::after {
-            content: '-';
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .faq-answer {
-            padding: 0;
-            max-height: 0;
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 500px;
+        .blog-card:hover {
+            transform: translateY(-5px);
         }
 
+        .blog-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
         .contact {
-            padding: 4rem 0;
-            background-color: white;
+            background: var(--primary-blue);
+            color: var(--white);
         }
 
-        .contact-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-row {
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .form-control {
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: var(--font-main);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        textarea.form-control {
-            min-height: 150px;
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
         }
 
-        .form-check {
+        .contact-info h3 {
+            color: var(--neon-purple);
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
             display: flex;
-            align-items: flex-start;
-            margin-top: 1rem;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .form-check-input {
-            margin-right: 0.5rem;
-            margin-top: 0.3rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info-item {
+        .contact-method {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--white);
+            transition: background 0.3s ease;
         }
 
-        .contact-info-icon {
-            margin-right: 0.5rem;
-            color: var(--primary-color);
+        .contact-method:hover {
+            background: rgba(255,255,255,0.2);
         }
 
-        footer {
-            background-color: var(--dark-color);
-            color: white;
+        .contact-method i {
+            font-size: 1.5rem;
+            color: var(--neon-purple);
+        }
+
+        /* Map */
+        .map-container {
+            margin-top: 2rem;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
             padding: 3rem 0 1rem;
         }
 
-        .footer-grid {
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .footer-column h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+        .footer-section h3 {
+            color: var(--neon-purple);
+            margin-bottom: 1rem;
         }
 
         .footer-links {
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-
         .footer-links a {
-            color: #ddd;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--neon-purple);
         }
 
         .social-links {
@@ -543,996 +684,823 @@
         }
 
         .social-links a {
-            display: inline-block;
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: var(--neon-purple);
             border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            color: white;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s ease;
         }
 
         .social-links a:hover {
-            background-color: var(--primary-color);
+            transform: scale(1.1);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #444;
+            color: #ccc;
         }
 
-        /* Modal styles for service popups */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--gray-color);
-        }
-
-        .modal-body h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
-            font-size: 1.8rem;
-        }
-
-        .modal-body p {
-            margin-bottom: 1rem;
-        }
-
-        .modal-body ul {
-            list-style: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-body li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Success message for form submission */
-        .form-success {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        /* Language switcher styles */
-        .language-switcher {
-            display: flex;
-            align-items: center;
-            margin-left: 1.5rem;
-            cursor: pointer;
-        }
-
-        .language-switcher select {
-            padding: 0.3rem 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: var(--font-main);
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        /* Hide English content by default */
-        [lang="en"] {
-            display: none;
-        }
-
-        @media (max-width: 992px) {
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                background-color: white;
-                width: 100%;
-                height: calc(100vh - 70px);
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                transition: all 0.3s ease;
+                display: none;
             }
 
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 1rem 0;
-            }
-
-            .mobile-menu-btn {
+            .mobile-menu {
                 display: block;
             }
 
-            .hero h2 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .hero-buttons {
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 1rem;
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
+            .section-title h2 {
+                font-size: 2rem;
             }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .service-card,
+            .case-card,
+            .testimonial-card,
+            .blog-card {
+                margin: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--neon-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_bd9fa3b8-f21d-4fff-93ba-6dfb719be3b5" alt="AutoloopIA Logo" class="logo-img">
-                <h1>AutoloopIA</h1>
-            </a>
-            <button class="mobile-menu-btn">☰</button>
+    <header class="header">
+        <nav class="nav-container">
+            <!-- *** LOGO À REMPLACER *** -->
+            <a href="#home" class="logo">Autoloop AI</a>
+            
             <ul class="nav-menu">
-                <li><a href="#services" lang="fr">Services</a><a href="#services" lang="en">Services</a></li>
-                <li><a href="#about" lang="fr">À propos</a><a href="#about" lang="en">About</a></li>
-                <li><a href="#features" lang="fr">Avantages</a><a href="#features" lang="en">Benefits</a></li>
-                <li><a href="#pricing" lang="fr">Tarifs</a><a href="#pricing" lang="en">Pricing</a></li>
-                <li><a href="#testimonials" lang="fr">Témoignages</a><a href="#testimonials" lang="en">Testimonials</a></li>
-                <li><a href="#contact" lang="fr">Contact</a><a href="#contact" lang="en">Contact</a></li>
-                <li><a href="#contact" class="btn btn-primary" lang="fr">Demander une démo</a><a href="#contact" class="btn btn-primary" lang="en">Request a demo</a></li>
-                <li class="language-switcher">
-                    <select id="language-select">
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                    </select>
-                </li>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#cases">Projets</a></li>
+                <li><a href="#process">Processus</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2 lang="fr">L'IA au service de votre réussite entrepreneuriale</h2>
-            <h2 lang="en">AI powering your entrepreneurial success</h2>
-            <p lang="fr">Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial grâce à nos solutions d'automatisation IA et notre accompagnement personnalisé.</p>
-            <p lang="en">Automate your operational tasks and simplify your entrepreneurial journey with our AI automation solutions and personalized guidance.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-outline" lang="fr">Découvrir nos services</a>
-                <a href="#services" class="btn btn-outline" lang="en">Discover our services</a>
-                <a href="#contact" class="btn btn-secondary" lang="fr">Nous contacter</a>
-                <a href="#contact" class="btn btn-secondary" lang="en">Contact us</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Nous propulsons les entreprises vers l'avenir grâce à l'intelligence artificielle</h1>
+            <p>De la création de sites web intelligents à l'automatisation complète de vos processus, Autoloop AI est votre partenaire pour une croissance durable et technologique.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Demander un audit gratuit</a>
+                <a href="#services" class="btn btn-secondary">Découvrir nos solutions</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2 lang="fr">Nos Services</h2>
-                <h2 lang="en">Our Services</h2>
-                <p lang="fr">Des solutions complètes pour automatiser vos processus et accélérer votre croissance</p>
-                <p lang="en">Comprehensive solutions to automate your processes and accelerate your growth</p>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Entreprises accompagnées</div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3 lang="fr">Automatisation IA</h3>
-                        <h3 lang="en">AI Automation</h3>
-                        <p lang="fr">Optimisez vos opérations grâce à nos solutions d'automatisation intelligente. Gagnez du temps et réduisez les erreurs en automatisant vos tâches répétitives.</p>
-                        <p lang="en">Optimize your operations with our intelligent automation solutions. Save time and reduce errors by automating your repetitive tasks.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="automatisation" lang="fr">En savoir plus</a>
-                        <a href="#" class="btn btn-outline service-btn" data-service="automatisation" lang="en">Learn more</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3 lang="fr">Accompagnement Entrepreneurial</h3>
-                        <h3 lang="en">Business Coaching</h3>
-                        <p lang="fr">Simplifiez votre parcours de création d'entreprise avec notre accompagnement personnalisé. De la conception à la mise en œuvre, nous sommes à vos côtés.</p>
-                        <p lang="en">Simplify your business creation journey with our personalized coaching. From concept to implementation, we're by your side.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="accompagnement" lang="fr">En savoir plus</a>
-                        <a href="#" class="btn btn-outline service-btn" data-service="accompagnement" lang="en">Learn more</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-content">
-                        <h3 lang="fr">Formation et Support</h3>
-                        <h3 lang="en">Training and Support</h3>
-                        <p lang="fr">Bénéficiez d'une formation complète et d'un support continu pour maîtriser vos outils d'automatisation et optimiser votre efficacité opérationnelle.</p>
-                        <p lang="en">Benefit from comprehensive training and ongoing support to master your automation tools and optimize your operational efficiency.</p>
-                        <a href="#" class="btn btn-outline service-btn" data-service="formation" lang="fr">En savoir plus</a>
-                        <a href="#" class="btn btn-outline service-btn" data-service="formation" lang="en">Learn more</a>
-                    </div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="60">0</div>
+                <div class="stat-label">% de productivité en moyenne</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Support 24/7</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">% de satisfaction client</div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="section about">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2 lang="fr">Qui sommes-nous ?</h2>
-                    <h2 lang="en">Who are we?</h2>
-                    <p lang="fr">AutoloopIA est née d'une vision simple : rendre les technologies d'automatisation IA accessibles à tous les entrepreneurs, quelle que soit leur taille ou leur secteur d'activité.</p>
-                    <p lang="en">AutoloopIA was born from a simple vision: making AI automation technologies accessible to all entrepreneurs, regardless of their size or industry.</p>
-                    <p lang="fr">Notre équipe combine une expertise pointue en intelligence artificielle et une connaissance approfondie des défis entrepreneuriaux pour vous offrir des solutions sur mesure qui vous permettent de vous concentrer sur votre cœur de métier.</p>
-                    <p lang="en">Our team combines in-depth expertise in artificial intelligence with a thorough understanding of entrepreneurial challenges to offer you tailored solutions that allow you to focus on your core business.</p>
-                    <p lang="fr">Grâce à notre modèle innovant, nous proposons des services de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
-                    <p lang="en">Thanks to our innovative model, we offer high-quality services at competitive prices, with customization tailored to your specific needs.</p>
-                    <a href="#contact" class="btn btn-primary" lang="fr">Parlons de votre projet</a>
-                    <a href="#contact" class="btn btn-primary" lang="en">Let's talk about your project</a>
+            <div class="section-title">
+                <h2>Notre mission : donner aux entreprises les outils de demain</h2>
+                <p>Chez Autoloop AI, nous croyons que l'intelligence artificielle est la clé de la performance moderne. Notre mission est d'aider les entreprises à gagner en agilité, en précision et en rentabilité grâce à des solutions technologiques intelligentes, fiables et évolutives.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Nous développons des solutions avant-gardistes qui anticipent les besoins futurs de votre entreprise.</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_bd9fa3b8-f21d-4fff-93ba-6dfb719be3b5" alt="Logo AutoloopIA" style="width: 100%; max-width: 400px; margin: 0 auto; display: block;">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Fiabilité</h3>
+                    <p>Nos systèmes sont conçus pour fonctionner de manière stable et sécurisée, 24h/24 et 7j/7.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Nous visons l'excellence dans chaque projet pour dépasser vos attentes.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Accompagnement</h3>
+                    <p>Notre équipe vous accompagne à chaque étape de votre transformation digitale.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Services Section -->
+    <section id="services" class="section">
         <div class="container">
             <div class="section-title">
-                <h2 lang="fr">Pourquoi nous choisir ?</h2>
-                <h2 lang="en">Why choose us?</h2>
-                <p lang="fr">Des avantages concrets pour votre entreprise</p>
-                <p lang="en">Concrete benefits for your business</p>
+                <h2>Nos Services</h2>
+                <p>Des solutions complètes pour propulser votre entreprise vers l'excellence technologique</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🚀</div>
-                    <h3 lang="fr">Gain de temps</h3>
-                    <h3 lang="en">Time savings</h3>
-                    <p lang="fr">Réduisez jusqu'à 70% le temps consacré aux tâches administratives et opérationnelles.</p>
-                    <p lang="en">Reduce time spent on administrative and operational tasks by up to 70%.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Automatisation & Intelligence Artificielle</h3>
+                    <p>Transformez vos processus avec l'IA pour gagner en efficacité et réduire les erreurs.</p>
+                    <ul class="service-list">
+                        <li>Automatisation des processus internes et clients</li>
+                        <li>Création de chatbots intelligents</li>
+                        <li>Intégration IA dans les outils métiers (CRM, ERP, etc.)</li>
+                        <li>Analyse prédictive et recommandations automatisées</li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <h3 lang="fr">Réduction des coûts</h3>
-                    <h3 lang="en">Cost reduction</h3>
-                    <p lang="fr">Optimisez vos ressources et réduisez vos coûts opérationnels grâce à l'automatisation.</p>
-                    <p lang="en">Optimize your resources and reduce operational costs through automation.</p>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Création de sites web & plateformes</h3>
+                    <p>Sites web intelligents qui s'adaptent à vos utilisateurs et optimisent vos conversions.</p>
+                    <ul class="service-list">
+                        <li>Sites vitrines, e-commerce et SaaS</li>
+                        <li>Intégration d'IA : analyse comportementale</li>
+                        <li>Recommandations intelligentes et chatbots</li>
+                        <li>Maintenance, hébergement et optimisation SEO</li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔍</div>
-                    <h3 lang="fr">Expertise double</h3>
-                    <h3 lang="en">Dual expertise</h3>
-                    <p lang="fr">Bénéficiez de notre expertise combinée en IA et en création d'entreprise.</p>
-                    <p lang="en">Benefit from our combined expertise in AI and business creation.</p>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Développement de logiciels sur mesure</h3>
+                    <p>Solutions logicielles personnalisées pour répondre à vos besoins spécifiques.</p>
+                    <ul class="service-list">
+                        <li>Logiciels métiers (gestion, ventes, RH, reporting)</li>
+                        <li>Applications web et mobiles performantes</li>
+                        <li>Connecteurs et API basés sur l'IA</li>
+                        <li>Intégration avec vos systèmes existants</li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📈</div>
-                    <h3 lang="fr">Scalabilité</h3>
-                    <h3 lang="en">Scalability</h3>
-                    <p lang="fr">Nos solutions évoluent avec votre entreprise, de la création à la croissance.</p>
-                    <p lang="en">Our solutions evolve with your business, from creation to growth.</p>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analyse & Stratégie digitale</h3>
+                    <p>Prenez des décisions éclairées grâce à l'analyse intelligente de vos données.</p>
+                    <ul class="service-list">
+                        <li>Audit digital complet</li>
+                        <li>Analyse de performance et recommandations IA</li>
+                        <li>Tableaux de bord automatisés</li>
+                        <li>Optimisation continue des processus</li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛠️</div>
-                    <h3 lang="fr">Personnalisation</h3>
-                    <h3 lang="en">Customization</h3>
-                    <p lang="fr">Des solutions adaptées à vos besoins spécifiques et à votre secteur d'activité.</p>
-                    <p lang="en">Solutions tailored to your specific needs and industry.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contact" class="btn btn-primary">Demandez un audit gratuit de votre entreprise</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="cases" class="section case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Études de cas</h2>
+                <p>Découvrez comment nous avons transformé des entreprises grâce à l'IA</p>
+            </div>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <!-- *** IMAGE PROJET 1 À REMPLACER *** -->
+                    <div class="case-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="case-content">
+                        <h3>E-commerce avec IA prédictive</h3>
+                        <p><strong>Objectif :</strong> Améliorer les ventes et la satisfaction client d'une boutique en ligne.</p>
+                        <p><strong>Solution :</strong> Système de recommandations intelligent et chatbot d'assistance client 24/7.</p>
+                        <div class="case-result">
+                            <i class="fas fa-chart-line"></i> Résultat : +45% de ventes et +60% de satisfaction client
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <h3 lang="fr">Accompagnement continu</h3>
-                    <h3 lang="en">Ongoing support</h3>
-                    <p lang="fr">Un support dédié et une formation complète pour maximiser votre autonomie.</p>
-                    <p lang="en">Dedicated support and comprehensive training to maximize your autonomy.</p>
+                
+                <div class="case-card">
+                    <!-- *** IMAGE PROJET 2 À REMPLACER *** -->
+                    <div class="case-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="case-content">
+                        <h3>Automatisation de la gestion des stocks</h3>
+                        <p><strong>Objectif :</strong> Optimiser la gestion des stocks d'une entreprise manufacturière.</p>
+                        <p><strong>Solution :</strong> Système IA de prédiction des besoins et automatisation des commandes.</p>
+                        <div class="case-result">
+                            <i class="fas fa-chart-line"></i> Résultat : -30% de coûts de stockage et +25% d'efficacité
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <!-- *** IMAGE PROJET 3 À REMPLACER *** -->
+                    <div class="case-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="case-content">
+                        <h3>Plateforme RH intelligente</h3>
+                        <p><strong>Objectif :</strong> Moderniser les processus RH et améliorer l'expérience employé.</p>
+                        <p><strong>Solution :</strong> Application RH avec IA pour le matching des profils et gestion automatisée.</p>
+                        <div class="case-result">
+                            <i class="fas fa-chart-line"></i> Résultat : -70% de temps de recrutement et +40% de rétention
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <!-- Process Section -->
+    <section id="process" class="section">
         <div class="container">
             <div class="section-title">
-                <h2 lang="fr">Nos Formules</h2>
-                <h2 lang="en">Our Plans</h2>
-                <p lang="fr">Des solutions adaptées à chaque étape de votre développement</p>
-                <p lang="en">Solutions adapted to each stage of your development</p>
+                <h2>Notre processus</h2>
+                <p>Une méthodologie éprouvée pour garantir le succès de votre projet</p>
             </div>
-            <div class="service-cards">
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3 lang="fr">Entrepreneur Débutant</h3>
-                        <h3 lang="en">Beginning Entrepreneur</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p class="service-card-price">1 500€ <span lang="fr">+ 99€/mois</span><span lang="en">+ €99/month</span></p>
-                        <p lang="fr">Idéal pour les entrepreneurs en phase de lancement</p>
-                        <p lang="en">Ideal for entrepreneurs in the launch phase</p>
-                        <ul class="service-card-features">
-                            <li lang="fr">Accompagnement aux formalités de création</li>
-                            <li lang="en">Support with startup formalities</li>
-                            <li lang="fr">Mise en place de l'infrastructure digitale de base</li>
-                            <li lang="en">Setup of basic digital infrastructure</li>
-                            <li lang="fr">Automatisation de la gestion documentaire</li>
-                            <li lang="en">Document management automation</li>
-                            <li lang="fr">Chatbot simple pour votre site web</li>
-                            <li lang="en">Simple chatbot for your website</li>
-                            <li lang="fr">Support par email</li>
-                            <li lang="en">Email support</li>
-                        </ul>
-                    </div>
-                    <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
-                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
-                    </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnostic gratuit</h3>
+                    <p>Nous analysons vos besoins, vos processus actuels et identifions les opportunités d'amélioration grâce à l'IA.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3 lang="fr">Business Booster</h3>
-                        <h3 lang="en">Business Booster</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p class="service-card-price">3 500€ <span lang="fr">+ 249€/mois</span><span lang="en">+ €249/month</span></p>
-                        <p lang="fr">Idéal pour les TPE/PME en phase de croissance</p>
-                        <p lang="en">Ideal for SMEs in growth phase</p>
-                        <ul class="service-card-features">
-                            <li lang="fr">Tous les services du pack "Entrepreneur Débutant"</li>
-                            <li lang="en">All services from the "Beginning Entrepreneur" package</li>
-                            <li lang="fr">Business plan complet</li>
-                            <li lang="en">Complete business plan</li>
-                            <li lang="fr">Automatisation comptable</li>
-                            <li lang="en">Accounting automation</li>
-                            <li lang="fr">CRM intelligent</li>
-                            <li lang="en">Intelligent CRM</li>
-                            <li lang="fr">Automatisation des réseaux sociaux</li>
-                            <li lang="en">Social media automation</li>
-                            <li lang="fr">Support prioritaire par téléphone</li>
-                            <li lang="en">Priority phone support</li>
-                        </ul>
-                    </div>
-                    <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
-                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
-                    </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Proposition sur mesure</h3>
+                    <p>Nous élaborons une stratégie personnalisée et un plan d'action détaillé avec des objectifs mesurables.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <h3 lang="fr">Croissance Accélérée</h3>
-                        <h3 lang="en">Accelerated Growth</h3>
-                    </div>
-                    <div class="service-card-body">
-                        <p class="service-card-price">7 500€ <span lang="fr">+ 499€/mois</span><span lang="en">+ €499/month</span></p>
-                        <p lang="fr">Idéal pour les entreprises établies visant une optimisation complète</p>
-                        <p lang="en">Ideal for established businesses seeking complete optimization</p>
-                        <ul class="service-card-features">
-                            <li lang="fr">Tous les services du pack "Business Booster"</li>
-                            <li lang="en">All services from the "Business Booster" package</li>
-                            <li lang="fr">Stratégie de lancement complète</li>
-                            <li lang="en">Complete launch strategy</li>
-                            <li lang="fr">Automatisation marketing avancée</li>
-                            <li lang="en">Advanced marketing automation</li>
-                            <li lang="fr">Workflows intelligents personnalisés</li>
-                            <li lang="en">Custom intelligent workflows</li>
-                            <li lang="fr">Automatisation des processus de décision</li>
-                            <li lang="en">Decision process automation</li>
-                            <li lang="fr">Chef de projet dédié</li>
-                            <li lang="en">Dedicated project manager</li>
-                        </ul>
-                    </div>
-                    <div class="service-card-footer">
-                        <a href="#contact" class="btn btn-primary" lang="fr">Demander un devis</a>
-                        <a href="#contact" class="btn btn-primary" lang="en">Request a quote</a>
-                    </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Développement & intégration</h3>
+                    <p>Notre équipe met en œuvre les solutions technologiques en respectant les délais et votre budget.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Formation & suivi</h3>
+                    <p>Nous formons vos équipes et assurons un suivi continu pour optimiser les performances.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
+    <section class="section testimonials">
         <div class="container">
             <div class="section-title">
-                <h2 lang="fr">Ce que disent nos clients</h2>
-                <h2 lang="en">What our clients say</h2>
-                <p lang="fr">Découvrez les témoignages de ceux qui nous font confiance</p>
-                <p lang="en">Discover testimonials from those who trust us</p>
+                <h2>Témoignages clients</h2>
+                <p>Ce que disent nos partenaires de notre collaboration</p>
             </div>
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-content" lang="fr">"Grâce à AutoloopIA, j'ai pu automatiser ma gestion administrative et gagner plus de 15 heures par semaine. Un gain de temps inestimable qui me permet de me concentrer sur le développement de mon entreprise."</p>
-                    <p class="testimonial-content" lang="en">"Thanks to AutoloopIA, I was able to automate my administrative management and save more than 15 hours per week. This invaluable time saving allows me to focus on developing my business."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-avatar">SM</div>
-                        <div class="testimonial-author-info">
-                            <h4>Sophie Martin</h4>
-                            <p lang="fr">Fondatrice, Agence de Communication</p>
-                            <p lang="en">Founder, Communication Agency</p>
-                        </div>
+                    <!-- *** PHOTO CLIENT 1 À REMPLACER *** -->
+                    <div class="client-photo">
+                        <i class="fas fa-user"></i>
                     </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Grâce à Autoloop AI, nous avons automatisé nos opérations et gagné un temps précieux. Notre productivité a augmenté de 60% en seulement 3 mois."</p>
+                    <div class="client-name">Marie Dubois</div>
+                    <div class="client-company">PDG, TechCorp Solutions</div>
                 </div>
+                
                 <div class="testimonial-card">
-                    <p class="testimonial-content" lang="fr">"Après 3 mois d'utilisation des solutions d'AutoloopIA, nous avons constaté une réduction de 30% de nos coûts administratifs et une amélioration significative de notre réactivité client."</p>
-                    <p class="testimonial-content" lang="en">"After 3 months of using AutoloopIA solutions, we've seen a 30% reduction in our administrative costs and a significant improvement in our customer responsiveness."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-avatar">TD</div>
-                        <div class="testimonial-author-info">
-                            <h4>Thomas Dubois</h4>
-                            <p lang="fr">Dirigeant d'une PME de Services</p>
-                            <p lang="en">Manager of a Service SME</p>
-                        </div>
+                    <!-- *** PHOTO CLIENT 2 À REMPLACER *** -->
+                    <div class="client-photo">
+                        <i class="fas fa-user"></i>
                     </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Une équipe innovante et des solutions qui transforment réellement les performances. Le ROI a dépassé toutes nos attentes."</p>
+                    <div class="client-name">Jean Martin</div>
+                    <div class="client-company">Directeur Général, Innovation Plus</div>
                 </div>
+                
                 <div class="testimonial-card">
-                    <p class="testimonial-content" lang="fr">"L'automatisation de ma facturation, de mes relances et de ma présence sur les réseaux sociaux m'a permis d'augmenter mon chiffre d'affaires de 40% en un an, sans travailler plus d'heures."</p>
-                    <p class="testimonial-content" lang="en">"The automation of my billing, reminders, and social media presence allowed me to increase my revenue by 40% in one year, without working more hours."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-avatar">JL</div>
-                        <div class="testimonial-author-info">
-                            <h4>Julie Leroy</h4>
-                            <p lang="fr">Freelance en Marketing Digital</p>
-                            <p lang="en">Digital Marketing Freelancer</p>
-                        </div>
+                    <!-- *** PHOTO CLIENT 3 À REMPLACER *** -->
+                    <div class="client-photo">
+                        <i class="fas fa-user"></i>
                     </div>
+                    <div class="stars">★★★★☆</div>
+                    <p class="testimonial-text">"Notre chiffre d'affaires a augmenté grâce à leur automatisation intelligente. Un partenariat stratégique pour notre croissance."</p>
+                    <div class="client-name">Sophie Lemoine</div>
+                    <div class="client-company">CEO, Digital Future</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
+    <!-- Blog Section -->
+    <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2 lang="fr">Questions Fréquentes</h2>
-                <h2 lang="en">Frequently Asked Questions</h2>
-                <p lang="fr">Tout ce que vous devez savoir sur nos services</p>
-                <p lang="en">Everything you need to know about our services</p>
+                <h2>Blog & Insights IA</h2>
+                <p>Restez informé des dernières tendances en intelligence artificielle</p>
             </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" lang="fr">Qu'est-ce que le dropservicing d'automatisation IA ?</div>
-                    <div class="faq-question" lang="en">What is AI automation dropservicing?</div>
-                    <div class="faq-answer">
-                        <p lang="fr">Le dropservicing d'automatisation IA est un modèle d'affaires innovant qui consiste à proposer des services d'automatisation basés sur l'intelligence artificielle sans nécessairement développer toutes les technologies en interne. Nous combinons notre expertise en IA avec un réseau de prestataires spécialisés pour vous offrir des solutions de haute qualité à des prix compétitifs, avec une personnalisation adaptée à vos besoins spécifiques.</p>
-                        <p lang="en">AI automation dropservicing is an innovative business model that offers automation services based on artificial intelligence without necessarily developing all technologies in-house. We combine our AI expertise with a network of specialized providers to offer you high-quality solutions at competitive prices, with customization tailored to your specific needs.</p>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <!-- *** IMAGE ARTICLE 1 À REMPLACER *** -->
+                    <div class="blog-image">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">15 Mars 2025</div>
+                        <h3>Comment l'IA transforme les entreprises africaines</h3>
+                        <p class="blog-excerpt">Découvrez comment l'intelligence artificielle révolutionne le paysage entrepreneurial africain et crée de nouvelles opportunités de croissance...</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" lang="fr">Combien de temps faut-il pour mettre en place vos solutions ?</div>
-                    <div class="faq-question" lang="en">How long does it take to implement your solutions?</div>
-                    <div class="faq-answer">
-                        <p lang="fr">Le délai de mise en place varie selon la complexité de vos besoins et le package choisi. Pour le pack "Entrepreneur Débutant", comptez environ 2-3 semaines. Pour le pack "Business Booster", le déploiement prend généralement 4-6 semaines. Pour le pack "Croissance Accélérée", qui inclut des solutions plus personnalisées, prévoyez 6-8 semaines. Dans tous les cas, nous établissons un calendrier précis dès le début du projet et vous tenons informé de chaque étape.</p>
-                        <p lang="en">Implementation time varies depending on the complexity of your needs and the chosen package. For the "Beginning Entrepreneur" package, count about 2-3 weeks. For the "Business Booster" package, deployment typically takes 4-6 weeks. For the "Accelerated Growth" package, which includes more customized solutions, plan for 6-8 weeks. In all cases, we establish a precise schedule at the beginning of the project and keep you informed of each step.</p>
+                
+                <div class="blog-card">
+                    <!-- *** IMAGE ARTICLE 2 À REMPLACER *** -->
+                    <div class="blog-image">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">10 Mars 2025</div>
+                        <h3>5 automatisations simples pour gagner du temps chaque jour</h3>
+                        <p class="blog-excerpt">Des solutions pratiques et faciles à implémenter pour automatiser vos tâches répétitives et vous concentrer sur l'essentiel...</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" lang="fr">Faut-il des compétences techniques pour utiliser vos solutions ?</div>
-                    <div class="faq-question" lang="en">Do I need technical skills to use your solutions?</div>
-                    <div class="faq-answer">
-                        <p lang="fr">Non, nos solutions sont conçues pour être intuitives et accessibles à tous, sans nécessiter de compétences techniques particulières. Nous assurons une formation complète à l'utilisation de nos outils et proposons un support continu pour répondre à toutes vos questions. Notre objectif est de vous rendre autonome rapidement tout en restant disponibles pour vous accompagner selon vos besoins.</p>
-                        <p lang="en">No, our solutions are designed to be intuitive and accessible to everyone, without requiring special technical skills. We provide comprehensive training on using our tools and offer ongoing support to answer all your questions. Our goal is to make you autonomous quickly while remaining available to assist you according to your needs.</p>
+                
+                <div class="blog-card">
+                    <!-- *** IMAGE ARTICLE 3 À REMPLACER *** -->
+                    <div class="blog-image">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" lang="fr">Comment garantissez-vous la sécurité de mes données ?</div>
-                    <div class="faq-question" lang="en">How do you ensure the security of my data?</div>
-                    <div class="faq-answer">
-                        <p lang="fr">La sécurité de vos données est notre priorité absolue. Nous appliquons les meilleures pratiques en matière de protection des données : chiffrement de bout en bout, authentification multi-facteurs, contrôles d'accès stricts, et sauvegardes régulières. Toutes nos solutions sont conformes au RGPD et nous réalisons des audits de sécurité réguliers. Nous signons également des accords de confidentialité stricts avec tous nos prestataires.</p>
-                        <p lang="en">The security of your data is our top priority. We apply best practices in data protection: end-to-end encryption, multi-factor authentication, strict access controls, and regular backups. All our solutions are GDPR compliant and we conduct regular security audits. We also sign strict confidentiality agreements with all our providers.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" lang="fr">Puis-je faire évoluer mon forfait avec le temps ?</div>
-                    <div class="faq-question" lang="en">Can I upgrade my plan over time?</div>
-                    <div class="faq-answer">
-                        <p lang="fr">Absolument ! Nos forfaits sont conçus pour évoluer avec votre entreprise. Vous pouvez facilement passer à un niveau supérieur lorsque vos besoins augmentent ou ajouter des services à la carte pour compléter votre package. Nous réalisons des revues trimestrielles pour évaluer si votre solution actuelle répond toujours parfaitement à vos besoins et vous conseiller sur les évolutions possibles.</p>
-                        <p lang="en">Absolutely! Our plans are designed to evolve with your business. You can easily upgrade to a higher level when your needs increase or add à la carte services to complement your package. We conduct quarterly reviews to assess whether your current solution still perfectly meets your needs and advise you on possible evolutions.</p>
+                    <div class="blog-content">
+                        <div class="blog-date">5 Mars 2025</div>
+                        <h3>Pourquoi intégrer l'IA dans votre stratégie digitale dès maintenant</h3>
+                        <p class="blog-excerpt">Les entreprises qui adoptent l'IA aujourd'hui prennent une longueur d'avance. Voici pourquoi vous devriez commencer maintenant...</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2 lang="fr">Prêt à transformer votre entreprise ?</h2>
-            <h2 lang="en">Ready to transform your business?</h2>
-            <p lang="fr">Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nos solutions d'automatisation IA peuvent révolutionner votre façon de travailler.</p>
-            <p lang="en">Contact us today for a free consultation and discover how our AI automation solutions can revolutionize your way of working.</p>
-            <a href="#contact" class="btn btn-outline" lang="fr">Demander une démo</a>
-            <a href="#contact" class="btn btn-outline" lang="en">Request a demo</a>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section contact">
         <div class="container">
             <div class="section-title">
-                <h2 lang="fr">Contactez-nous</h2>
-                <h2 lang="en">Contact us</h2>
-                <p lang="fr">Nous sommes là pour répondre à toutes vos questions</p>
-                <p lang="en">We're here to answer all your questions</p>
+                <h2>Parlons de votre projet</h2>
+                <p>Prêt à transformer votre entreprise ? Contactez-nous pour un audit gratuit</p>
             </div>
-                <!-- FORMSPREE INTEGRATION -->
-                <form id="contact-form" action="https://formspree.io/f/xkgjynyo" method="POST">
-                    <div class="form-row">
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Demande d'audit gratuit</h3>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name" lang="fr">Nom et prénom</label>
-                            <label for="name" lang="en">Full name</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom / Your name" required>
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
                         </div>
                         <div class="form-group">
-                            <label for="email" lang="fr">Email</label>
-                            <label for="email" lang="en">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Votre email / Your email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company" lang="fr">Entreprise</label>
-                            <label for="company" lang="en">Company</label>
-                            <input type="text" id="company" name="company" class="form-control" placeholder="Votre entreprise / Your company">
+                            <label for="company">Entreprise *</label>
+                            <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
                         </div>
                         <div class="form-group">
-                            <label for="subject" lang="fr">Sujet</label>
-                            <label for="subject" lang="en">Subject</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="" selected disabled lang="fr">Sélectionnez un sujet</option>
-                                <option value="" selected disabled lang="en">Select a subject</option>
-                                <option value="info" lang="fr">Demande d'information</option>
-                                <option value="info" lang="en">Information request</option>
-                                <option value="quote" lang="fr">Demande de devis</option>
-                                <option value="quote" lang="en">Quote request</option>
-                                <option value="demo" lang="fr">Demande de démo</option>
-                                <option value="demo" lang="en">Demo request</option>
-                                <option value="support" lang="fr">Support technique</option>
-                                <option value="support" lang="en">Technical support</option>
-                                <option value="other" lang="fr">Autre</option>
-                                <option value="other" lang="en">Other</option>
-                            </select>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" lang="fr">Message</label>
-                        <label for="message" lang="en">Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Votre message / Your message" required></textarea>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" id="rgpd" name="rgpd" class="form-check-input" required>
-                        <label for="rgpd" class="form-check-label" lang="fr">J'accepte que mes données soient traitées conformément à la politique de confidentialité d'AutoloopIA.</label>
-                        <label for="rgpd" class="form-check-label" lang="en">I agree that my data will be processed in accordance with AutoloopIA's privacy policy.</label>
-                    </div>
-                    <div class="form-group" style="margin-top: 1.5rem;">
-                        <button type="submit" class="btn btn-primary" lang="fr">Envoyer</button>
-                        <button type="submit" class="btn btn-primary" lang="en">Send</button>
-                    </div>
-                </form>
-            </div>
-            <div class="contact-grid" style="margin-top: 3rem;">
-                <div class="contact-info">
-                    <h3 lang="fr">Informations de contact</h3>
-                    <h3 lang="en">Contact information</h3>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">📍</div>
-                        <p>Montréal, Québec</p>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">✉️</div>
-                        <p>alidanioko@gmail.com</p>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">⏰</div>
-                        <p lang="fr">Lundi - Vendredi: 9h00 - 18h00</p>
-                        <p lang="en">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+33 1 23 45 67 89">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Décrivez-nous votre projet et vos objectifs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Envoyer la demande</span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="loading"></span> Envoi en cours...
+                            </span>
+                        </button>
+                    </form>
                 </div>
-                <div class="contact-map">
-                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_bd9fa3b8-f21d-4fff-93ba-6dfb719be3b5" alt="Logo AutoloopIA" style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">
+                
+                <div class="contact-info">
+                    <h3>Contactez-nous directement</h3>
+                    <div class="contact-methods">
+                        <!-- *** NUMÉRO WHATSAPP À REMPLACER *** -->
+                        <a href="https://wa.me/33123456789" class="contact-method" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong><br>
+                                +33 1 23 45 67 89
+                            </div>
+                        </a>
+                        
+                        <!-- *** LIEN TELEGRAM À REMPLACER *** -->
+                        <a href="https://t.me/autoloopai" class="contact-method" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                            <div>
+                                <strong>Telegram</strong><br>
+                                @autoloopai
+                            </div>
+                        </a>
+                        
+                        <!-- *** EMAIL À REMPLACER *** -->
+                        <a href="mailto:contact@autoloop-ai.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                contact@autoloop-ai.com
+                            </div>
+                        </a>
+                        
+                        <!-- *** ADRESSE À REMPLACER *** -->
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Adresse</strong><br>
+                                123 Rue de la Innovation<br>
+                                75001 Paris, France
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- *** COORDONNÉES GOOGLE MAPS À REMPLACER *** -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937586!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fec70fb1a4f%3A0x40b82c3688c9460!2sLouvre%20Museum!5e0!3m2!1sen!2sfr!4v1621234567890!5m2!1sen!2sfr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>AutoloopIA Solutions</h3>
-                    <p lang="fr">L'IA au service de votre réussite entrepreneuriale. Automatisez vos tâches opérationnelles et simplifiez votre parcours entrepreneurial.</p>
-                    <p lang="en">AI at the service of your entrepreneurial success. Automate your operational tasks and simplify your entrepreneurial journey.</p>
-                    <div class="social-links" style="margin-top: 1.5rem;">
-                        <a href="https://www.linkedin.com/company/autoloop-ai/about/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Autoloop AI</h3>
+                    <p>Nous propulsons les entreprises vers l'avenir grâce à l'intelligence artificielle.</p>
+                    <div class="social-links">
+                        <!-- *** LIENS RÉSEAUX SOCIAUX À REMPLACER *** -->
+                        <a href="https://linkedin.com/company/autoloop-ai" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com/autoloop_ai" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@autoloopai" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://twitter.com/autoloop_ai" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3 lang="fr">Liens rapides</h3>
-                    <h3 lang="en">Quick links</h3>
+                
+                <div class="footer-section">
+                    <h3>Navigation</h3>
                     <ul class="footer-links">
-                        <li><a href="#services" lang="fr">Services</a><a href="#services" lang="en">Services</a></li>
-                        <li><a href="#about" lang="fr">À propos</a><a href="#about" lang="en">About</a></li>
-                        <li><a href="#features" lang="fr">Avantages</a><a href="#features" lang="en">Benefits</a></li>
-                        <li><a href="#pricing" lang="fr">Tarifs</a><a href="#pricing" lang="en">Pricing</a></li>
-                        <li><a href="#testimonials" lang="fr">Témoignages</a><a href="#testimonials" lang="en">Testimonials</a></li>
-                        <li><a href="#faq" lang="fr">FAQ</a><a href="#faq" lang="en">FAQ</a></li>
-                        <li><a href="#contact" lang="fr">Contact</a><a href="#contact" lang="en">Contact</a></li>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#cases">Projets</a></li>
+                        <li><a href="#process">Processus</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3 lang="fr">Services</h3>
-                    <h3 lang="en">Services</h3>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#" class="service-btn" data-service="automatisation" lang="fr">Automatisation IA</a><a href="#" class="service-btn" data-service="automatisation" lang="en">AI Automation</a></li>
-                        <li><a href="#" class="service-btn" data-service="accompagnement" lang="fr">Accompagnement Entrepreneurial</a><a href="#" class="service-btn" data-service="accompagnement" lang="en">Business Coaching</a></li>
-                        <li><a href="#" class="service-btn" data-service="formation" lang="fr">Formation et Support</a><a href="#" class="service-btn" data-service="formation" lang="en">Training and Support</a></li>
-                        <li><a href="#contact" lang="fr">Consultation Personnalisée</a><a href="#contact" lang="en">Personalized Consultation</a></li>
+                        <li><a href="#services">Automatisation IA</a></li>
+                        <li><a href="#services">Sites web intelligents</a></li>
+                        <li><a href="#services">Logiciels sur mesure</a></li>
+                        <li><a href="#services">Analyse & Stratégie</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3 lang="fr">Newsletter</h3>
-                    <h3 lang="en">Newsletter</h3>
-                    <p lang="fr">Inscrivez-vous pour recevoir nos actualités et conseils sur l'automatisation IA.</p>
-                    <p lang="en">Subscribe to receive our news and advice on AI automation.</p>
-                    <form action="https://formspree.io/f/xayryjdg" method="POST">
-                        <div class="form-group" style="margin-top: 1rem;">
-                            <input type="email" name="email_newsletter" class="form-control" placeholder="Votre email / Your email" required>
-                            <input type="hidden" name="form_type" value="newsletter">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;" lang="fr">S'inscrire</button>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;" lang="en">Subscribe</button>
-                    </form>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <!-- *** COORDONNÉES À REMPLACER *** -->
+                        <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+                        <li><i class="fas fa-envelope"></i> contact@autoloop-ai.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p lang="fr">&copy; 2025 AutoloopIA Solutions. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
-                <p lang="en">&copy; 2025 AutoloopIA Solutions. All rights reserved. | <a href="#">Legal notices</a> | <a href="#">Privacy policy</a></p>
+                <p>&copy; 2025 Autoloop AI — Transformons vos idées en solutions intelligentes. | <a href="#" style="color: #ccc;">Mentions légales</a> | <a href="#" style="color: #ccc;">Politique de confidentialité</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Service Modals -->
-    <div id="automatisationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <h3 lang="fr">Automatisation IA</h3>
-                <h3 lang="en">AI Automation</h3>
-                <p lang="fr">Notre service d'Automatisation IA vous permet d'optimiser l'ensemble de vos processus opérationnels grâce à l'intelligence artificielle. Nous identifions les tâches répétitives et chronophages dans votre organisation et mettons en place des solutions d'automatisation sur mesure.</p>
-                <p lang="en">Our AI Automation service allows you to optimize all your operational processes thanks to artificial intelligence. We identify repetitive and time-consuming tasks in your organization and implement customized automation solutions.</p>
-                
-                <p lang="fr"><strong>Nos services d'automatisation incluent :</strong></p>
-                <p lang="en"><strong>Our automation services include:</strong></p>
-                <ul>
-                    <li lang="fr"><b>Automatisation documentaire</b> : Gestion, classification et extraction intelligente des données de vos documents.</li>
-                    <li lang="en"><b>Document automation</b>: Management, classification, and intelligent data extraction from your documents.</li>
-                    <li lang="fr"><b>Automatisation administrative</b> : Facturation, relances, reporting, et gestion des rendez-vous.</li>
-                    <li lang="en"><b>Administrative automation</b>: Invoicing, reminders, reporting, and appointment management.</li>
-                    <li lang="fr"><b>Automatisation marketing</b> : Publication sur les réseaux sociaux, emailing, et campagnes marketing.</li>
-                    <li lang="en"><b>Marketing automation</b>: Social media posting, email marketing, and marketing campaigns.</li>
-                    <li lang="fr"><b>Automatisation des processus métier</b> : Workflow personnalisés selon votre secteur d'activité.</li>
-                    <li lang="en"><b>Business process automation</b>: Customized workflows according to your industry.</li>
-                    <li lang="fr"><b>Chatbots intelligents</b> : Service client 24/7 et qualification des prospects.</li>
-                    <li lang="en"><b>Intelligent chatbots</b>: 24/7 customer service and lead qualification.</li>
-                </ul>
-                
-                <p lang="fr"><strong>Avantages :</strong></p>
-                <p lang="en"><strong>Benefits:</strong></p>
-                <ul>
-                    <li lang="fr">Gain de temps considérable (jusqu'à 70% sur les tâches automatisées)</li>
-                    <li lang="en">Considerable time savings (up to 70% on automated tasks)</li>
-                    <li lang="fr">Réduction des erreurs humaines</li>
-                    <li lang="en">Reduction of human errors</li>
-                    <li lang="fr">Disponibilité 24/7 de certains services</li>
-                    <li lang="en">24/7 availability of certain services</li>
-                    <li lang="fr">Réduction des coûts opérationnels</li>
-                    <li lang="en">Reduction of operational costs</li>
-                    <li lang="fr">Amélioration de l'expérience client</li>
-                    <li lang="en">Improved customer experience</li>
-                    <li lang="fr">Libération des ressources pour des tâches à plus forte valeur ajoutée</li>
-                    <li lang="en">Freeing up resources for higher value-added tasks</li>
-                </ul>
-                
-                <p lang="fr">Chaque solution est développée spécifiquement pour répondre à vos besoins, en tenant compte de vos outils existants et de vos objectifs de croissance.</p>
-                <p lang="en">Each solution is specifically developed to meet your needs, taking into account your existing tools and growth objectives.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="accompagnementModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <h3 lang="fr">Accompagnement Entrepreneurial</h3>
-                <h3 lang="en">Business Coaching</h3>
-                <p lang="fr">Notre service d'Accompagnement Entrepreneurial vous guide à chaque étape de votre parcours, de l'idée initiale au développement de votre entreprise. Notre approche combine expertise business et technologique pour maximiser vos chances de succès.</p>
-                <p lang="en">Our Business Coaching service guides you through every step of your journey, from the initial idea to the development of your business. Our approach combines business and technological expertise to maximize your chances of success.</p>
-                
-                <p lang="fr"><strong>Notre accompagnement comprend :</strong></p>
-                <p lang="en"><strong>Our coaching includes:</strong></p>
-                <ul>
-                    <li lang="fr"><b>Étude de marché et validation</b> : Analyse de la concurrence, identification du public cible, validation du concept.</li>
-                    <li lang="en"><b>Market research and validation</b>: Competitive analysis, target audience identification, concept validation.</li>
-                    <li lang="fr"><b>Business plan et stratégie</b> : Élaboration d'un business plan complet et définition d'une stratégie de croissance.</li>
-                    <li lang="en"><b>Business plan and strategy</b>: Development of a complete business plan and definition of a growth strategy.</li>
-                    <li lang="fr"><b>Formalités administratives</b> : Assistance pour toutes les démarches de création d'entreprise.</li>
-                    <li lang="en"><b>Administrative formalities</b>: Assistance for all business creation procedures.</li>
-                    <li lang="fr"><b>Stratégie digitale</b> : Définition de votre présence en ligne et de votre stratégie d'acquisition.</li>
-                    <li lang="en"><b>Digital strategy</b>: Definition of your online presence and acquisition strategy.</li>
-                    <li lang="fr"><b>Recherche de financement</b> : Préparation aux levées de fonds et identification des aides disponibles.</li>
-                    <li lang="en"><b>Funding research</b>: Preparation for fundraising and identification of available aids.</li>
-                    <li lang="fr"><b>Mise en relation</b> : Accès à notre réseau de partenaires et prestataires qualifiés.</li>
-                    <li lang="en"><b>Networking</b>: Access to our network of partners and qualified service providers.</li>
-                </ul>
-                
-                <p lang="fr"><strong>Notre méthodologie :</strong></p>
-                <p lang="en"><strong>Our methodology:</strong></p>
-                <ul>
-                    <li lang="fr">Analyse approfondie de votre projet et de vos besoins</li>
-                    <li lang="en">In-depth analysis of your project and your needs</li>
-                    <li lang="fr">Définition d'objectifs clairs et mesurables</li>
-                    <li lang="en">Definition of clear and measurable objectives</li>
-                    <li lang="fr">Élaboration d'un plan d'action personnalisé</li>
-                    <li lang="en">Development of a personalized action plan</li>
-                    <li lang="fr">Points de suivi réguliers pour mesurer les progrès</li>
-                    <li lang="en">Regular follow-up points to measure progress</li>
-                    <li lang="fr">Adaptation de la stratégie selon les résultats obtenus</li>
-                    <li lang="en">Strategy adaptation based on obtained results</li>
-                </ul>
-                
-                <p lang="fr">Notre accompagnement est pensé pour être flexible et s'adapter à votre rythme et à vos objectifs, que vous soyez au stade de l'idée ou déjà en phase de développement.</p>
-                <p lang="en">Our coaching is designed to be flexible and adapt to your pace and objectives, whether you are at the idea stage or already in the development phase.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="formationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <h3 lang="fr">Formation et Support</h3>
-                <h3 lang="en">Training and Support</h3>
-                <p lang="fr">Notre service de Formation et Support vous permet de maîtriser pleinement les outils d'automatisation mis en place et de disposer d'une assistance continue pour optimiser leur utilisation.</p>
-                <p lang="en">Our Training and Support service allows you to fully master the automation tools put in place and have continuous assistance to optimize their use.</p>
-                
-                <p lang="fr"><strong>Notre offre de formation comprend :</strong></p>
-                <p lang="en"><strong>Our training offer includes:</strong></p>
-                <ul>
-                    <li lang="fr"><b>Formation initiale</b> : Prise en main des outils d'automatisation adaptée à votre niveau technique.</li>
-                    <li lang="en"><b>Initial training</b>: Getting started with automation tools adapted to your technical level.</li>
-                    <li lang="fr"><b>Ateliers pratiques</b> : Sessions interactives pour maîtriser les fonctionnalités avancées.</li>
-                    <li lang="en"><b>Practical workshops</b>: Interactive sessions to master advanced features.</li>
-                    <li lang="fr"><b>Documentation personnalisée</b> : Guides et procédures spécifiques à votre configuration.</li>
-                    <li lang="en"><b>Customized documentation</b>: Guides and procedures specific to your configuration.</li>
-                    <li lang="fr"><b>Formation continue</b> : Mise à jour régulière de vos connaissances selon l'évolution des outils.</li>
-                    <li lang="en"><b>Continuous training</b>: Regular updating of your knowledge according to the evolution of tools.</li>
-                    <li lang="fr"><b>Formation d'équipe</b> : Programmes adaptés pour former l'ensemble de vos collaborateurs.</li>
-                    <li lang="en"><b>Team training</b>: Adapted programs to train all your employees.</li>
-                </ul>
-                
-                <p lang="fr"><strong>Notre support inclut :</strong></p>
-                <p lang="en"><strong>Our support includes:</strong></p>
-                <ul>
-                    <li lang="fr">Assistance technique par email, téléphone ou visioconférence</li>
-                    <li lang="en">Technical assistance via email, phone, or video conference</li>
-                    <li lang="fr">Résolution des problèmes et dépannage rapide</li>
-                    <li lang="en">Problem solving and quick troubleshooting</li>
-                    <li lang="fr">Audits réguliers pour optimiser l'utilisation de vos outils</li>
-                    <li lang="en">Regular audits to optimize the use of your tools</li>
-                    <li lang="fr">Conseils personnalisés pour améliorer vos processus</li>
-                    <li lang="en">Personalized advice to improve your processes</li>
-                    <li lang="fr">Maintenance et mises à jour des solutions déployées</li>
-                    <li lang="en">Maintenance and updates of deployed solutions</li>
-                </ul>
-                
-                <p lang="fr">Notre objectif est de vous rendre autonome rapidement tout en restant à vos côtés pour vous accompagner dans l'évolution de vos besoins. Nous nous adaptons à votre niveau technique et vous proposons un parcours de formation sur mesure.</p>
-                <p lang="en">Our goal is to make you autonomous quickly while staying by your side to support you in the evolution of your needs. We adapt to your technical level and offer you a customized training path.</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Language switcher functionality
-        const languageSelect = document.getElementById('language-select');
-        
-        // Function to set language
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
+        // Navigation mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
             
-            // Hide all language elements
-            document.querySelectorAll('[lang]').forEach(el => {
-                el.style.display = 'none';
+            mobileMenu.addEventListener('click', function() {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
             });
-            
-            // Show selected language elements
-            document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
-                el.style.display = 'block';
-            });
-            
-            // Special case for inline elements that should be inline
-            document.querySelectorAll(`a[lang="${lang}"]`).forEach(el => {
-                el.style.display = 'inline-block';
-            });
-        }
-        
-        // Initialize with French
-        setLanguage('fr');
-        
-        // Language change event
-        languageSelect.addEventListener('change', function() {
-            setLanguage(this.value);
         });
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth Scrolling
+        // Smooth scrolling pour les liens de navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (!this.classList.contains('service-btn')) {
-                    e.preventDefault();
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
+        // Animation des compteurs
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.ceil(current);
+                }
+            }, 20);
+        }
+
+        // Observer pour les animations au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    
+                    // Animation des compteurs
+                    if (entry.target.querySelector('.stat-number')) {
+                        const counters = entry.target.querySelectorAll('.stat-number');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.getAttribute('data-target'));
+                            animateCounter(counter, target);
                         });
                     }
-
-                    // Close mobile menu if open
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                    }
                 }
             });
+        }, {
+            threshold: 0.1
         });
 
-        // FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-                
-                // Close all other answers
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                    q.nextElementSibling.classList.remove('active');
-                });
-                
-                // Toggle current answer
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('active');
-                }
-            });
+        // Observer tous les éléments à animer
+        document.querySelectorAll('.section, .stats, .hero').forEach(el => {
+            observer.observe(el);
         });
 
-        // Service Modal Functionality
-        const serviceBtns = document.querySelectorAll('.service-btn');
-        const modals = document.querySelectorAll('.modal');
-        const closeModalBtns = document.querySelectorAll('.close-modal');
-
-        serviceBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const service = btn.getAttribute('data-service');
-                const modal = document.getElementById(`${service}Modal`);
-                if (modal) {
-                    modal.style.display = 'block';
-                }
-            });
-        });
-
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const modal = btn.closest('.modal');
-                if (modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
-        window.addEventListener('click', (e) => {
-            modals.forEach(modal => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
-        // Formspree form handling with success message
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
-        const formSuccessEn = document.getElementById('form-success-en');
-
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            try {
-                const response = await fetch(this.action, {
-                    method: this.method,
-                    body: new FormData(this),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    // Show success message based on current language
-                    const currentLang = document.documentElement.lang;
-                    if (currentLang === 'fr') {
-                        formSuccess.style.display = 'block';
-                    } else {
-                        formSuccessEn.style.display = 'block';
-                    }
-                    
-                    contactForm.reset();
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        formSuccess.style.display = 'none';
-                        formSuccessEn.style.display = 'none';
-                    }, 5000);
-                } else {
-                    console.error('Formspree submission error');
-                    alert(document.documentElement.lang === 'fr' ? 
-                          'Une erreur est survenue. Veuillez réessayer plus tard.' : 
-                          'An error occurred. Please try again later.');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert(document.documentElement.lang === 'fr' ? 
-                      'Une erreur est survenue. Veuillez réessayer plus tard.' : 
-                      'An error occurred. Please try again later.');
+        // Header transparent au scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 35, 126, 0.95)';
+            } else {
+                header.style.background = 'rgba(26, 35, 126, 0.95)';
             }
         });
+
+        // Formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('button[type="submit"]');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+            
+            // Afficher le loader
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-flex';
+            btn.disabled = true;
+            
+            // Simuler l'envoi (à remplacer par votre logique d'envoi)
+            setTimeout(() => {
+                // Masquer le loader
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                btn.disabled = false;
+                
+                // Message de succès
+                alert('Merci ! Votre demande a été envoyée. Nous vous contacterons dans les 24h.');
+                
+                // Reset du formulaire
+                this.reset();
+            }, 2000);
+        });
+
+        // Validation en temps réel du formulaire
+        const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#ff6b6b';
+                } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = 'rgba(255,255,255,0.2)';
+                }
+            });
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Animation des cartes au hover
+        const cards = document.querySelectorAll('.service-card, .case-card, .testimonial-card, .blog-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Performance optimization - Lazy loading pour les images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Easter egg - Konami code
+        let konamiCode = [];
+        const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.code);
+            if (konamiCode.length > sequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join('') === sequence.join('')) {
+                document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd)';
+                document.body.style.backgroundSize = '400% 400%';
+                document.body.style.animation = 'gradient 3s ease infinite';
+                
+                setTimeout(() => {
+                    document.body.style.background = '';
+                    document.body.style.animation = '';
+                }, 5000);
+                
+                konamiCode = [];
+            }
+        });
+
+        // Ajout de l'animation gradient pour l'easter egg
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
