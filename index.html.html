@@ -64,16 +64,45 @@
             margin: 0 auto;
         }
 
-        .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+      /* Logo container */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--white);
+    vertical-align: middle;
+}
+
+/* Image du logo */
+.logo-img {
+    width: 56px;         /* taille standard desktop — ajuste si tu veux plus petit/plus grand */
+    height: 56px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+}
+
+/* Texte à côté du logo — conserve branding, mais tu peux cacher sur mobile */
+.logo-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Si tu veux uniquement l'image (cacher le texte sur écrans petits) */
+@media (max-width: 768px) {
+    .logo-text { display: none; }
+    .logo-img { width: 48px; height: 48px; }
+}
+
+/* Ajuste l'espacement du header si nécessaire */
+.nav-container { padding: 0.75rem 5%; } /* déjà présent mais si tu veux réduire la marge verticale */
+
         }
 
         .nav-menu {
@@ -810,7 +839,11 @@
     <header class="header">
         <nav class="nav-container">
             <!-- *** LOGO À REMPLACER *** -->
-            <a href="#home" class="logo">Autoloop AI</a>
+            <a href="#home" class="logo">
+  <img src="https://i.imgur.com/8h61ofn.png" alt="Autoloop AI" class="logo-img" />
+  <span class="logo-text orbitron">Autoloop AI</span>
+</a>
+
             
             <ul class="nav-menu">
                 <li><a href="#home">Accueil</a></li>
