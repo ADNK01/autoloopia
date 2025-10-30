@@ -1540,6 +1540,7 @@
             }
         `;
         document.head.appendChild(style);
+       
         <header class="header">
   <nav class="nav-container">
     <a href="#home" class="logo">
@@ -1556,6 +1557,34 @@
     </div>
   </nav>
 </header>
+
+        .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0b0b56; /* ta couleur bleue foncée */
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 5%;
+}
+
+.logo-img {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}
+
+body {
+  padding-top: 70px; /* compense la hauteur du header */
+}
+
 
     </script>
 </body>
